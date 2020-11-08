@@ -1,9 +1,10 @@
-import remark from 'remark'
+import parse from 'remark-parse'
 import remark2react from 'remark-react'
 import path from 'path'
 import matter from 'gray-matter'
 import formatDate from '@/lib/date'
 import fs from 'fs'
+import unified from 'unified'
 
 const DIR = path.join(process.cwd(), 'content/posts')
 const EXTENSION = '.md'
@@ -13,14 +14,16 @@ const listContentFiles = (): string[] => {
   return filenames.filter((filename: string) => path.parse(filename).ext === EXTENSION)
 }
 
-const readContentFile = (slug?: string, filename?: string): PostContent => {
-  const processor = remark().use(remark2react)
+const readContentFile = ({ slug, filename }: { slug?: string | string[], filename?: string }): PostContent => {
+  const processor = unified().use(parse).use(remark2react)
   if (slug === undefined) {
     if (filename !== undefined) {
       slug = path.parse(filename).name
     } else {
       throw new TypeError()
     }
+  } else if (slug instanceof Array) {
+    slug = slug.join()
   }
   const raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), 'utf8')
   const matterResult = matter(raw)
@@ -28,7 +31,7 @@ const readContentFile = (slug?: string, filename?: string): PostContent => {
   const { title, date: rawPublished } = matterResult.data
 
   const parsedContent = processor.processSync(matterResult.content)
-  const content = parsedContent.toString()
+  const content = parsedContent.contents.toString()
 
   return {
     title,
@@ -39,7 +42,7 @@ const readContentFile = (slug?: string, filename?: string): PostContent => {
 }
 
 const readContentFiles = async (): Promise<PostContent[]> => {
-  const promisses = listContentFiles().map((filename) => readContentFile(filename))
+  const promisses = listContentFiles().map((filename) => readContentFile({ filename: filename }))
   const contents = await Promise.all(promisses)
   return contents.sort(sortWithProp('published', true))
 }
