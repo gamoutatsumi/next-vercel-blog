@@ -8,5 +8,14 @@ module.exports = {
       '@': path.resolve(__dirname, './src')
     }
     return config
+  },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/post',
+        permanent: true
+      }
+    ]
   }
 }
