@@ -23,7 +23,7 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const MAX_COUNT = 5
+  const MAX_COUNT = 10
   const posts = await readContentFiles()
 
   return {

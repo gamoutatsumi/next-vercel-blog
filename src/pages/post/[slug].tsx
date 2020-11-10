@@ -1,12 +1,11 @@
 import path from 'path'
 import React from 'react'
 import Layout from '@/components/Layout'
-import unified from 'unified'
-import parse from 'remark-parse'
-import remark2react from 'remark-react'
+import ReactMarkdown from 'react-markdown'
 
 import { listContentFiles, PostContent, readContentFile } from '@/lib/content-loader'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import CodeBlock from '@/components/CodeBlock'
 
 const Post: NextPage<PostContent> = ({ title, content, published }) => {
   return (
@@ -15,7 +14,7 @@ const Post: NextPage<PostContent> = ({ title, content, published }) => {
         <span>{published}</span>
       </div>
       <div>
-        {unified().use(parse).use(remark2react).processSync(content).result}
+        <ReactMarkdown renderers={{ code: CodeBlock }} source={content} />
       </div>
     </Layout>
   )

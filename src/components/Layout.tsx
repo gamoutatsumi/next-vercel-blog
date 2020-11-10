@@ -7,11 +7,12 @@ export interface Props {
 }
 
 const Layout: React.FC<Props> = ({ title, children }) => {
-  const siteTitle = 'インフラ系専門学生の日記'
+  const siteTitle = process.env.SITE_TITLE ?? 'Next.js Markdown Blog'
   return (
     <div className='page'>
       <Head>
-        <title>{(title != null) ? `${title} | ${siteTitle}` : siteTitle}</title>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <title>{(title != null && title !== '') ? `${title} | ${siteTitle}` : siteTitle}</title>
       </Head>
       <Header />
       <main>

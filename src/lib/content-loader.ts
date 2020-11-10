@@ -1,10 +1,7 @@
-import parse from 'remark-parse'
-import remark2react from 'remark-react'
 import path from 'path'
 import matter from 'gray-matter'
 import formatDate from '@/lib/date'
 import fs from 'fs'
-import unified from 'unified'
 
 const DIR = path.join(process.cwd(), 'content/posts')
 const EXTENSION = '.md'
@@ -15,7 +12,6 @@ const listContentFiles = (): string[] => {
 }
 
 const readContentFile = ({ slug, filename }: { slug?: string | string[], filename?: string }): PostContent => {
-  const processor = unified().use(parse).use(remark2react)
   if (slug === undefined) {
     if (filename !== undefined) {
       slug = path.parse(filename).name
@@ -30,8 +26,7 @@ const readContentFile = ({ slug, filename }: { slug?: string | string[], filenam
 
   const { title, date: rawPublished } = matterResult.data
 
-  const parsedContent = processor.processSync(matterResult.content)
-  const content = parsedContent.contents.toString()
+  const content = matterResult.content
 
   return {
     title,

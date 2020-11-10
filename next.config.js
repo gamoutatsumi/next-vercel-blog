@@ -17,5 +17,8 @@ module.exports = {
         permanent: true
       }
     ]
+  },
+  env: {
+    SITE_TITLE: 'インフラ系専門学生の日記'
   }
 }
