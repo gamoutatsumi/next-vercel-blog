@@ -1,11 +1,33 @@
 import path from 'path'
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import Layout from '@/components/Layout'
 import ReactMarkdown from 'react-markdown'
+import toc from 'remark-toc'
+import GithubSlugger from 'github-slugger'
 
 import { listContentFiles, PostContent, readContentFile } from '@/lib/content-loader'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import CodeBlock from '@/components/CodeBlock'
+
+const slugger = new GithubSlugger()
+
+interface HeadingProps {
+  level: number
+  children: JSX.Element[]
+}
+
+const Heading: FunctionComponent<HeadingProps> = (props) => {
+  if (props.children == null || props.children === undefined) {
+    return React.createElement('')
+  }
+  return React.createElement(
+    `h${props.level}`,
+    {
+      id: slugger.slug(props.children[0].props.children)
+    },
+    props.children
+  )
+}
 
 const Post: NextPage<PostContent> = ({ title, content, published }) => {
   return (
@@ -14,7 +36,8 @@ const Post: NextPage<PostContent> = ({ title, content, published }) => {
         <span>{published}</span>
       </div>
       <div>
-        <ReactMarkdown renderers={{ code: CodeBlock }} source={content} />
+        <h1>{title}</h1>
+        <ReactMarkdown plugins={[[toc, { heading: '目次' }]]} renderers={{ code: CodeBlock, heading: Heading }} source={content} />
       </div>
     </Layout>
   )
