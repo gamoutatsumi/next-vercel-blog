@@ -8,7 +8,7 @@ const linkStyle = {
 const Header: React.FC = () => {
   return (
     <header className='Header'>
-      <Link href='/'>
+      <Link href='/post'>
         <a style={linkStyle}>Home</a>
       </Link>
     </header>

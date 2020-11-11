@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from '@/components/Header'
 import Head from 'next/head'
+import SideBar from '@/components/SideBar'
+import Footer from './Footer'
 
 export interface Props {
   title: string | null
@@ -18,6 +20,8 @@ const Layout: React.FC<Props> = ({ title, children }) => {
       <main>
         {children}
       </main>
+      <SideBar />
+      <Footer />
     </div>
   )
 }
