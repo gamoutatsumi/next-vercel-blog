@@ -1,8 +1,8 @@
-import path from 'path'
 import React, { FunctionComponent } from 'react'
 import Layout from '@/components/Layout'
 import ReactMarkdown from 'react-markdown'
 import toc from 'remark-toc'
+import gfm from 'remark-gfm'
 import GithubSlugger from 'github-slugger'
 
 import { listContentFiles, PostContent, readContentFile } from '@/lib/content-loader'
@@ -37,15 +37,14 @@ const Post: NextPage<PostContent> = ({ title, content, published }) => {
       </div>
       <div>
         <h1>{title}</h1>
-        <ReactMarkdown plugins={[[toc, { heading: '目次' }]]} renderers={{ code: CodeBlock, heading: Heading }} source={content} />
+        <ReactMarkdown plugins={[[gfm], [toc, { heading: '目次' }]]} renderers={{ code: CodeBlock, heading: Heading }} source={content} />
       </div>
     </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const content = readContentFile({ slug: params?.slug })
-
+  const content = readContentFile({ category: params?.category, slug: params?.slug })
   return {
     props: {
       ...content
@@ -54,9 +53,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = listContentFiles().map((filename) => ({
+  const paths = listContentFiles().map((filename) => readContentFile({ filename: filename })).map(post => ({
     params: {
-      slug: path.parse(filename).name
+      category: post.category,
+      slug: post.slug
     }
   }))
 

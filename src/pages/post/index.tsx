@@ -15,7 +15,7 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
         key={post.slug}
         className="post-teaser"
       >
-        <h2><Link href="/post/[id]" as={`/post/${post.slug}`}><a>{post.title}</a></Link></h2>
+        <h2><Link href="/post/[category]/[id]" as={`/post/${post.category}/${post.slug}`}><a>{post.title}</a></Link></h2>
         <div><span>{post.published}</span></div>
       </div>)}
     </Layout>
