@@ -16,7 +16,7 @@ const Layout: React.FC<Props> = ({ title, children }) => {
         <link rel="icon" type="image/png" href="/favicon.png" />
         <title>{(title != null && title !== '') ? `${title} | ${siteTitle}` : siteTitle}</title>
       </Head>
-      <Header />
+      <Header siteName={siteTitle} />
       <main>
         {children}
       </main>

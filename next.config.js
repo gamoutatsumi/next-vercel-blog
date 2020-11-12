@@ -19,6 +19,10 @@ module.exports = {
     ]
   },
   env: {
-    SITE_TITLE: 'インフラ系専門学生の日記'
+    SITE_TITLE: 'インフラ系専門学生の日記',
+    OWNER: 'Tatsumi Gamou',
+    FIRST_PUBLISHED_YEAR: '2019',
+    GITHUB_USERNAME: 'gamoutatsumi',
+    TWITTER_USERNAME: 'gamoutatsumi'
   }
 }

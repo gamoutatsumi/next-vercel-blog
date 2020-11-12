@@ -3,7 +3,7 @@ import React from 'react'
 const Footer: React.FC = () => {
   return (
     <footer>
-      &copy; Tatsumi Gamou
+      &copy;{process.env.FIRST_PUBLISHED_YEAR ?? '1970'} {process.env.OWNER ?? 'John Smith'}
     </footer>
   )
 }
