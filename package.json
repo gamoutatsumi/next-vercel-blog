@@ -38,6 +38,9 @@
     "lint-staged": "^10.5.1",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^1.9.6",
+    "textlint": "^11.7.6",
+    "textlint-rule-preset-ja-technical-writing": "^4.0.1",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0",
     "typescript": "^4.0.5",
     "vercel": "^20.1.4"
   },
@@ -49,6 +52,9 @@
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "eslint"
+    ],
+    "content/posts/**/*.md": [
+      "textlint"
     ]
   },
   "private": true,
@@ -58,6 +64,7 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
     "start": "next start",
-    "vdev": "vercel dev"
+    "vdev": "vercel dev",
+    "mdlint": "textlint 'content/posts/**/*.md'"
   }
 }
