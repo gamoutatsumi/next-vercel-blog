@@ -8,4 +8,6 @@ const Footer: React.FC = () => {
   )
 }
 
+console.log('hoge')
+
 export default Footer
