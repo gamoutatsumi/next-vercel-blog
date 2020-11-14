@@ -12,5 +12,3 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           eslint_flags: "'src/**/*.{ts,tsx}'"
-          filter_mode: nofilter
-          level: warning
