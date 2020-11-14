@@ -55,7 +55,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "eslint 'src/**' --ext .ts,.tsx",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
     "start": "next start",
     "vdev": "vercel dev"
