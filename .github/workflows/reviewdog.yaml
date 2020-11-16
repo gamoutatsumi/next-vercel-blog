@@ -18,8 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: textlint
-        uses: tuyoshicho/action-textlint@v1
+        uses: tsuyoshicho/action-textlint@v2
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
+          filter_mode: nofilter
           textlint_flags: 'content/posts/**/*.md'

@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    reviewers:
+      - gamoutatsumi
+    target-branch: "master"
+    versioning-strategy: increase-if-necessary
+    schedule:
+      interval: daily
