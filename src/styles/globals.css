@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+
 html,
 body {
   padding: 0;
@@ -14,3 +17,15 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.hero {
+  @apply py-20;
+}
+
+.title {
+  @apply text-5xl text-center;
+  color: #333;
+  line-height: 1.15;
+}
+
+@tailwind utilities;

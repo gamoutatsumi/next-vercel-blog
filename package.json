@@ -1,10 +1,23 @@
 {
-  "name": "next-typescript-eslint-prettier-template",
+  "name": "next-vercel-blog",
   "version": "0.1.0",
   "dependencies": {
-    "next": "9.5.5",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
+    "@types/react-syntax-highlighter": "^13.5.0",
+    "github-slugger": "^1.3.0",
+    "gray-matter": "^4.0.2",
+    "js-yaml-loader": "^1.2.2",
+    "next": "^10.0.1",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-markdown": "^5.0.2",
+    "react-syntax-highlighter": "^15.3.0",
+    "react-twitter-embed": "^3.0.3",
+    "remark-gfm": "^1.0.0",
+    "remark-slug": "^6.0.0",
+    "remark-toc": "^7.0.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.6",
@@ -21,25 +34,37 @@
     "eslint-plugin-standard": "4",
     "fixpack": "^3.0.6",
     "husky": "^4.3.0",
+    "js-green-licenses": "^2.0.1",
     "lint-staged": "^10.5.1",
-    "typescript": "^4.0.5"
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.9.6",
+    "textlint": "^11.7.6",
+    "textlint-rule-preset-ja-technical-writing": "^4.0.1",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0",
+    "typescript": "^4.0.5",
+    "vercel": "^20.1.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --verbose"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint"
+    ],
+    "content/posts/**/*.md": [
+      "textlint"
+    ]
   },
   "private": true,
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "eslint 'src/**' --ext .ts,.tsx",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
-    "start": "next start"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.@(ts|tsx)": [
-      "yarn lint:fix"
-    ]
+    "start": "next start",
+    "vdev": "vercel dev",
+    "mdlint": "textlint 'content/posts/**/*.md'"
   }
 }
