@@ -17,7 +17,7 @@ const Layout: React.FC<Props> = ({ title, children }) => {
         <title>{(title != null && title !== '') ? `${title} | ${siteTitle}` : siteTitle}</title>
       </Head>
       <Header siteName={siteTitle} />
-      <div className='container mx-auto my-3 flex justify-between'>
+      <div className='container mx-auto my-3 flex flex-wrap justify-between'>
         <main className='w-full lg:w-3/4 bg-white p-3'>
           {children}
         </main>
