@@ -9,9 +9,11 @@ interface P {
 
 const CodeBlock: React.FC<P> = ({ language, value }) => {
   return (
-    <SyntaxHighlighter language={language} style={darcula}>
-      {value}
-    </SyntaxHighlighter>
+    <div className='px-2 py-1'>
+      <SyntaxHighlighter language={language} style={darcula}>
+        {value}
+      </SyntaxHighlighter>
+    </div>
   )
 }
 
