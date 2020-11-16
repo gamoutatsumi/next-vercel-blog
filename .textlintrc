@@ -1,0 +1,49 @@
+{
+  "plugins": {
+    "@textlint/markdown": {
+      "extensions": [".md"]
+    }
+  },
+  "filters": {},
+  "rules": {
+    "preset-ja-technical-writing": {
+      "no-exclamation-question-mark": {
+        "allowFullWidthExclamation": true,
+        "allowFullWidthQuestion": true,
+        "severity": "warning"
+      },
+    },
+    "spellcheck-tech-word": {
+      "severity": "warning"
+    },
+    "ja-technical-writing/sentence-length": false,
+    "ja-technical-writing/ja-no-weak-phrase": {
+      "severity": "warning"
+    },
+    "ja-technical-writing/ja-unnatural-alphabet": {
+      "severity": "warning"
+    },
+    "ja-technical-writing/ja-no-mixed-period": {
+      "severity": "warning"
+    },
+    "ja-technical-writing/max-ten": {
+      "max": 4,
+      "severity": "warning"
+    },
+    "ja-technical-writing/no-doubled-joshi": {
+      "severity": "warning"
+    },
+    "ja-technical-writing/ja-no-redundant-expression": {
+      "severity": "warning"
+    },
+    "ja-technical-writing/ja-no-successive-word": {
+      "severity": "warning"
+    },
+    "ja-technical-writing/arabic-kanji-numbers": {
+      "severity": "warning"
+    },
+    "ja-technical-writing/max-kanji-continuous-len": {
+      "severity": "warning"
+    }
+  }
+}

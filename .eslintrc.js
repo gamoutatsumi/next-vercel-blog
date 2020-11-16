@@ -19,6 +19,7 @@ module.exports = {
     }
   },
   "rules": {
+    "no-console": 1,
     "react/prop-types": "off",
     "@typescript-eslint/no-empty-interface": 0
   },
