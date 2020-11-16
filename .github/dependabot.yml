@@ -4,7 +4,7 @@ updates:
     directory: "/"
     reviewers:
       - gamoutatsumi
-    target-branch: "master"
+    target-branch: "feature"
     versioning-strategy: increase-if-necessary
     schedule:
       interval: daily
