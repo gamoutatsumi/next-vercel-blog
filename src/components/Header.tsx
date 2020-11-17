@@ -5,15 +5,11 @@ interface Props {
   siteName: string
 }
 
-const linkStyle = {
-  marginRight: 15
-}
-
 const Header: React.FC<Props> = ({ siteName }) => {
   return (
-    <header className='Header'>
+    <header className='flex shadow-md bg-white'>
       <Link href='/post'>
-        <a style={linkStyle}>{siteName}</a>
+        <a className='text-xl m-2'>{siteName}</a>
       </Link>
     </header>
   )

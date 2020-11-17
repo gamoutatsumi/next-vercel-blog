@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+[![reviewdog](https://github.com/gamoutatsumi/next-vercel-blog/workflows/reviewdog/badge.svg)](https://github.com/gamoutatsumi/next-vercel-blog/actions?query=workflow%3Areviewdog)
+
 ## Getting Started
 
 First, run the development server:

@@ -14,9 +14,11 @@ const GithubContributions: React.FC<Props> = ({ userName }) => {
         <FontAwesomeIcon style={iconStyle} icon={faGithub} />
         <a href={`https://github.com/${userName}`}>{userName}</a>
       </div>
-      <a href={`https://github.com/${userName}`}>
-        <img src={`https://grass-graph.moshimo.works/images/${userName}.png?rotate=90`} />
-      </a>
+      <div className='text-center'>
+        <a className='inline-block' href={`https://github.com/${userName}`}>
+          <img src={`https://grass-graph.moshimo.works/images/${userName}.png?rotate=90`} />
+        </a>
+      </div>
     </>
   )
 }

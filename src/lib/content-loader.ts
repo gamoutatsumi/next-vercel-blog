@@ -52,8 +52,9 @@ const readContentFile = ({ category, slug, filename }: { category?: string | str
   }
 }
 
-const readContentFiles = async (): Promise<PostContent[]> => {
-  const promisses = listContentFiles().map((filename) => readContentFile({ filename: filename }))
+const readContentFiles = async (category: string | string[] | undefined = ''): Promise<PostContent[]> => {
+  if (category instanceof Array) category = category.join('/')
+  const promisses = listContentFiles([DIR, category].join('/')).map((filename) => readContentFile({ filename: filename }))
   const contents = await Promise.all(promisses)
   return contents.sort(sortWithProp('published', true))
 }

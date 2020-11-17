@@ -4,6 +4,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
     "@types/react-syntax-highlighter": "^13.5.0",
     "github-slugger": "^1.3.0",
@@ -49,6 +50,7 @@
       "pre-commit": "lint-staged --verbose"
     }
   },
+  "license": "MIT",
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "eslint"
@@ -57,14 +59,14 @@
       "textlint"
     ]
   },
-  "private": true,
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "jsgl": "jsgl --local .",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
+    "mdlint": "textlint 'content/posts/**/*.md'",
     "start": "next start",
-    "vdev": "vercel dev",
-    "mdlint": "textlint 'content/posts/**/*.md'"
+    "vdev": "vercel dev"
   }
 }

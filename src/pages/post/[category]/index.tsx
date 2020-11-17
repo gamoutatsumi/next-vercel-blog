@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import Layout, { Props } from '@/components/Layout'
-import { PostContent, readContentFiles } from '@/lib/content-loader'
-import { GetStaticProps, NextPage } from 'next'
+import { PostContent, readContentFiles, listContentFiles, readContentFile } from '@/lib/content-loader'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faFolder } from '@fortawesome/free-regular-svg-icons'
 
@@ -11,9 +11,10 @@ interface IndexProps extends Props {
 }
 
 const Home: NextPage<IndexProps> = ({ posts }) => {
+  const title = posts[0].category.charAt(0).toUpperCase() + posts[0].category.slice(1)
   return (
-    <Layout title="Posts">
-      <h1>Posts</h1>
+    <Layout title={title}>
+      <h1>{title}</h1>
       {posts.map((post) => <div
         key={post.slug}
         className="post-teaser"
@@ -38,9 +39,19 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = listContentFiles().map((filename) => readContentFile({ filename: filename })).map(post => ({
+    params: {
+      category: post.category
+    }
+  }))
+
+  return { paths, fallback: false }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const MAX_COUNT = 10
-  const posts = await readContentFiles()
+  const posts = await readContentFiles(params?.category)
 
   return {
     props: {
