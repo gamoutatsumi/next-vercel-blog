@@ -19,10 +19,12 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
       <h1>{title}</h1>
       {posts.map((post) => <div
         key={post.slug}
-        className="post-teaser"
+        className="post-teaser border m-3 p-2"
       >
-        <h2><Link href="/post/[category]/[id]" as={`/post/${post.category}/${post.slug}`}><a className="hover:underline">{post.title}</a></Link></h2>
-        <div>
+        <div className="my-1">
+          <h2><Link href="/post/[category]/[id]" as={`/post/${post.category}/${post.slug}`}><a className="hover:underline">{post.title}</a></Link></h2>
+        </div>
+        <div className="text-right">
           <span className="mr-2">
             <FontAwesomeIcon className="mr-1" icon={faCalendar} />
             {post.published}
