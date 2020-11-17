@@ -26,13 +26,13 @@ const Home: NextPage<IndexProps> = (props) => {
         </div>
         <div className="text-right">
           <span className="mr-2">
-            <FontAwesomeIcon className="mr-1" icon={faCalendar} />
+            <FontAwesomeIcon className="fa-fw mr-1" icon={faCalendar} />
             {post.published}
           </span>
           <span>
             <Link href="/post/[category]" as={`/post/${post.category}`}>
               <a>
-                <FontAwesomeIcon className="mr-1" icon={faFolder} />
+                <FontAwesomeIcon className="fa-fw mr-1" icon={faFolder} />
                 <span className="hover:underline inline-block w-10 text-left">{post.category}</span>
               </a>
             </Link>
