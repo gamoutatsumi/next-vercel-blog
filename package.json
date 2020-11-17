@@ -50,6 +50,7 @@
       "pre-commit": "lint-staged --verbose"
     }
   },
+  "license": "MIT",
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "eslint"
@@ -58,14 +59,14 @@
       "textlint"
     ]
   },
-  "private": true,
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "jsgl": "jsgl --local .",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
+    "mdlint": "textlint 'content/posts/**/*.md'",
     "start": "next start",
-    "vdev": "vercel dev",
-    "mdlint": "textlint 'content/posts/**/*.md'"
+    "vdev": "vercel dev"
   }
 }
