@@ -44,7 +44,7 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = listContentFiles().map((filename) => readContentFile({ filename: filename })).map(post => ({
     params: {
-      query: post.category
+      category: post.category
     }
   }))
 
