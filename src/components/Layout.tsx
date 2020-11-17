@@ -6,9 +6,9 @@ import Footer from './Footer'
 
 export interface Props {
   title: string | null
-  keyword?: string
+  keyword?: string | null
   isArticle: boolean
-  image?: string
+  image?: string | null
 }
 
 const Layout: React.FC<Props> = ({ title, children, keyword, isArticle, image }) => {
