@@ -22,19 +22,19 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
         <div className="my-1">
           <h2><Link href="/post/[category]/[id]" as={`/post/${post.category}/${post.slug}`}><a className="hover:underline">{post.title}</a></Link></h2>
         </div>
-        <div className="text-right">
-          <span className="mr-2">
+        <div className="text-right flex justify-end">
+          <div className="mr-2">
             <FontAwesomeIcon className="fa-fw mr-1" icon={faCalendar} />
             <span>{post.published}</span>
-          </span>
-          <span>
+          </div>
+          <div>
             <Link href="/post/[category]" as={`/post/${post.category}`}>
               <a>
                 <FontAwesomeIcon className="fa-fw mr-1" icon={faFolder} />
                 <span className="hover:underline inline-block w-10 text-left">{post.category}</span>
               </a>
             </Link>
-          </span>
+          </div>
         </div>
       </div>)}
     </Layout>
