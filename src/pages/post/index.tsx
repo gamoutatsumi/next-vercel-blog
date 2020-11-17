@@ -33,9 +33,9 @@ const Home: NextPage<IndexProps> = (props) => {
           </span>
           <span>
             <Link href="/post/[category]" as={`/post/${post.category}`}>
-              <a className="hover:underline">
+              <a>
                 <FontAwesomeIcon className="mr-1" icon={faFolder} />
-                {post.category}
+                <span className="hover:underline inline-block w-10 text-left">{post.category}</span>
               </a>
             </Link>
           </span>
@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const posts = await readContentFiles()
   return {
     props: {
-      posts: posts.slice(0, COUNT_PER_PAGE),
+      posts: posts,
       pageCount: posts.length,
       totalPage: COUNT_PER_PAGE
     }
