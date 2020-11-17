@@ -16,7 +16,7 @@ const Layout: React.FC<Props> = ({ title, children, keyword, isArticle, image })
   const pageTitle = ((title != null && title !== '') ? `${title} | ${siteTitle}` : siteTitle)
   const pageType = (isArticle ? 'article' : 'blog')
   const description = process.env.DESCRIPTION
-  const pageImage = ((image != null && image !== '') ? image : 'https://next-vercel-blog-git-feature.gamoutatsumi.vercel.app/favicon.png')
+  const pageImage = ((image != null && image !== '') ? image : 'https://blog.gamou-tatsumi.com/favicon.png')
   const pageKeyword = ((keyword != null && keyword !== '') ? `<meta name="keyword" content=${keyword}>` : '')
   return (
     <div className='page bg-gray-200 flex flex-col min-h-screen'>

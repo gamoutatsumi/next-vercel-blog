@@ -25,7 +25,7 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
         <div className="text-right">
           <span className="mr-2">
             <FontAwesomeIcon className="fa-fw mr-1" icon={faCalendar} />
-            {post.published}
+            <span>{post.published}</span>
           </span>
           <span>
             <Link href="/post/[category]" as={`/post/${post.category}`}>
