@@ -80,9 +80,9 @@ const List: FunctionComponent<MarkdownProps> = (props) => {
   }
 }
 
-const Post: NextPage<PostContent> = ({ title, content, published }) => {
+const Post: NextPage<PostContent> = ({ title, content, published, image, keyword }) => {
   return (
-    <Layout title={title}>
+    <Layout title={title} isArticle={true} keyword={keyword} image={image}>
       <div className="post-meta">
         <span>{published}</span>
       </div>

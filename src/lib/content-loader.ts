@@ -39,6 +39,10 @@ const readContentFile = ({ category, slug, filename }: { category?: string | str
   const raw = fs.readFileSync(path.join(DIR, category, `${slug}${EXTENSION}`), 'utf8')
   const matterResult = matter(raw)
 
+  const image = matterResult.data.image ?? null
+
+  const keyword = matterResult.data.keyword ?? null
+
   const { title, date: rawPublished } = matterResult.data
 
   const content = matterResult.content
@@ -48,7 +52,9 @@ const readContentFile = ({ category, slug, filename }: { category?: string | str
     published: formatDate(rawPublished),
     content,
     slug,
-    category
+    category,
+    image,
+    keyword
   }
 }
 
@@ -73,6 +79,8 @@ export interface PostContent {
   content: string
   slug: string
   category: string
+  image: string | null
+  keyword: string | null
 }
 
 export { listContentFiles, readContentFile, readContentFiles }

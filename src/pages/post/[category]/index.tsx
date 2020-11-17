@@ -13,7 +13,7 @@ interface IndexProps extends Props {
 const Home: NextPage<IndexProps> = ({ posts }) => {
   const title = posts[0].category.charAt(0).toUpperCase() + posts[0].category.slice(1)
   return (
-    <Layout title={title}>
+    <Layout title={title} isArticle={false}>
       <h1>{title}</h1>
       {posts.map((post) => <div
         key={post.slug}

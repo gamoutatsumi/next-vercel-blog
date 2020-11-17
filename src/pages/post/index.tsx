@@ -15,7 +15,7 @@ interface IndexProps extends Props {
 const Home: NextPage<IndexProps> = (props) => {
   const { posts } = props
   return (
-    <Layout title="Posts">
+    <Layout title="Posts" isArticle={false}>
       <h1>Posts</h1>
       {posts.map((post) => <div
         key={post.slug}
