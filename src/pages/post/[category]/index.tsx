@@ -6,8 +6,6 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faFolder } from '@fortawesome/free-regular-svg-icons'
 
-const COUNT_PER_PAGE = 5
-
 interface IndexProps extends Props {
   posts: PostContent[]
 }

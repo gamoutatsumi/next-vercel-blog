@@ -12,8 +12,6 @@ interface IndexProps extends Props {
   pageCount: number
 }
 
-const COUNT_PER_PAGE = 10
-
 const Home: NextPage<IndexProps> = (props) => {
   const { posts } = props
   return (
