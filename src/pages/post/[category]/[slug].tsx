@@ -111,7 +111,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
   }))
 
-  return { paths, fallback: false }
+  return { paths: paths, fallback: false }
 }
 
 export default Post

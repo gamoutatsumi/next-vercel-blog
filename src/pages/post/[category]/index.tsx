@@ -6,6 +6,8 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faFolder } from '@fortawesome/free-regular-svg-icons'
 
+const COUNT_PER_PAGE = 5
+
 interface IndexProps extends Props {
   posts: PostContent[]
 }
@@ -42,7 +44,7 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = listContentFiles().map((filename) => readContentFile({ filename: filename })).map(post => ({
     params: {
-      category: post.category
+      query: post.category
     }
   }))
 
@@ -50,12 +52,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const MAX_COUNT = 10
   const posts = await readContentFiles(params?.category)
 
   return {
     props: {
-      posts: posts.slice(0, MAX_COUNT)
+      posts: posts.slice(0, COUNT_PER_PAGE)
     }
   }
 }
