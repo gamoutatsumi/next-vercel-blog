@@ -48,8 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       posts: posts,
-      pageCount: posts.length,
-      totalPage: COUNT_PER_PAGE
+      pageCount: posts.length
     }
   }
 }
