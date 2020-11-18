@@ -1,6 +1,7 @@
 import React from 'react'
 import { TwitterTimelineEmbed, TwitterFollowButton } from 'react-twitter-embed'
 import GithubContributions from '@/components/GithubContributions'
+import GoogleAdsense from '@/components/GoogleAdsense'
 
 const SideBar: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const SideBar: React.FC = () => {
       <TwitterFollowButton screenName={process.env.TWITTER_USERNAME ?? 'gamoutatsumi'} />
       <h2 className='border-b-2 border-l-2 pl-2 my-3'>GitHub Activity</h2>
       <GithubContributions userName={process.env.GITHUB_USERNAME ?? 'gamoutatsumi'} />
+      <GoogleAdsense />
     </aside>
   )
 }

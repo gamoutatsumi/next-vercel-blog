@@ -4,7 +4,6 @@ import Head from 'next/head'
 import SideBar from '@/components/SideBar'
 import Footer from '@/components/Footer'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
-import GoogleAdsense from '@/components/GoogleAdsense'
 
 export interface Props {
   title: string | null
@@ -23,7 +22,6 @@ const Layout: React.FC<Props> = ({ title, children, keyword, isArticle, image })
   const trackingId = process.env.GA_TRACKING_ID ?? null
   return (
     <>
-      <GoogleAdsense />
       <div className='page bg-gray-200 flex flex-col min-h-screen'>
         <Head>
           <link rel="icon" type="image/png" href="/favicon.png" />
