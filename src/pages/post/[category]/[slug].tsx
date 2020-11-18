@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import toc from 'remark-toc'
 import gfm from 'remark-gfm'
 import GithubSlugger from 'github-slugger'
+import Isso from '@/components/Isso'
 
 import { listContentFiles, PostContent, readContentFile } from '@/lib/content-loader'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
@@ -80,15 +81,16 @@ const List: FunctionComponent<MarkdownProps> = (props) => {
   }
 }
 
-const Post: NextPage<PostContent> = ({ title, content, published }) => {
+const Post: NextPage<PostContent> = ({ title, content, published, image, keyword }) => {
   return (
-    <Layout title={title}>
+    <Layout title={title} isArticle={true} keyword={keyword} image={image}>
       <div className="post-meta">
         <span>{published}</span>
       </div>
       <div>
         <h1>{title}</h1>
         <ReactMarkdown plugins={[[gfm], [toc, { heading: '目次' }]]} renderers={{ code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }} source={content} />
+        <Isso />
       </div>
     </Layout>
   )
@@ -111,7 +113,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
   }))
 
-  return { paths, fallback: false }
+  return { paths: paths, fallback: false }
 }
 
 export default Post

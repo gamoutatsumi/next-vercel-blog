@@ -8,30 +8,35 @@ import { faCalendar, faFolder } from '@fortawesome/free-regular-svg-icons'
 
 interface IndexProps extends Props {
   posts: PostContent[]
+  totalPage: number
+  pageCount: number
 }
 
-const Home: NextPage<IndexProps> = ({ posts }) => {
+const Home: NextPage<IndexProps> = (props) => {
+  const { posts } = props
   return (
-    <Layout title="Posts">
+    <Layout title="Posts" isArticle={false}>
       <h1>Posts</h1>
       {posts.map((post) => <div
         key={post.slug}
-        className="post-teaser"
+        className="post-teaser border m-3 p-2"
       >
-        <h2><Link href="/post/[category]/[id]" as={`/post/${post.category}/${post.slug}`}><a className="hover:underline">{post.title}</a></Link></h2>
-        <div>
-          <span className="mr-2">
-            <FontAwesomeIcon className="mr-1" icon={faCalendar} />
-            {post.published}
-          </span>
-          <span>
+        <div className="my-1">
+          <h2><Link href="/post/[category]/[id]" as={`/post/${post.category}/${post.slug}`}><a className="hover:underline">{post.title}</a></Link></h2>
+        </div>
+        <div className="text-right flex justify-end">
+          <div className="mr-2">
+            <FontAwesomeIcon className="fa-fw mr-1" icon={faCalendar} />
+            <span>{post.published}</span>
+          </div>
+          <div>
             <Link href="/post/[category]" as={`/post/${post.category}`}>
-              <a className="hover:underline">
-                <FontAwesomeIcon className="mr-1" icon={faFolder} />
-                {post.category}
+              <a>
+                <FontAwesomeIcon className="fa-fw mr-1" icon={faFolder} />
+                <span className="hover:underline inline-block w-10 text-left">{post.category}</span>
               </a>
             </Link>
-          </span>
+          </div>
         </div>
       </div>)}
     </Layout>
@@ -39,12 +44,11 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const MAX_COUNT = 10
   const posts = await readContentFiles()
-
   return {
     props: {
-      posts: posts.slice(0, MAX_COUNT)
+      posts: posts,
+      pageCount: posts.length
     }
   }
 }

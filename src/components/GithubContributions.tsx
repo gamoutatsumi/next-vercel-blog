@@ -7,11 +7,10 @@ export interface Props {
 }
 
 const GithubContributions: React.FC<Props> = ({ userName }) => {
-  const iconStyle: React.CSSProperties = { fontSize: 14 }
   return (
     <>
       <div className="github-link">
-        <FontAwesomeIcon style={iconStyle} icon={faGithub} />
+        <FontAwesomeIcon className="fa-fw align-middle" icon={faGithub} />
         <a href={`https://github.com/${userName}`}>{userName}</a>
       </div>
       <div className='text-center'>
