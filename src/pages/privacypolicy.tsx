@@ -5,8 +5,8 @@ import toc from 'remark-toc'
 import gfm from 'remark-gfm'
 import GithubSlugger from 'github-slugger'
 
-import { listContentFiles, PostContent, readContentFile } from '@/lib/content-loader'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { PostContent, readContentFile } from '@/lib/content-loader'
+import { GetStaticProps, NextPage } from 'next'
 import CodeBlock from '@/components/CodeBlock'
 
 const slugger = new GithubSlugger()
