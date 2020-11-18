@@ -6,7 +6,7 @@ import fs from 'fs'
 const DIR = path.join(process.cwd(), 'content')
 const EXTENSION = '.md'
 
-const listContentFiles = (dir: string | undefined): string[] => {
+const listContentFiles = (dir?: string): string[] => {
   if (dir === undefined) dir = path.join(DIR, 'posts')
   const dirents = fs.readdirSync(dir, { withFileTypes: true })
   const dirs: string[] = []
