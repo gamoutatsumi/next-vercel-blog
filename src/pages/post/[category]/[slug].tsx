@@ -51,7 +51,7 @@ const Paragraph: FunctionComponent<MarkdownProps> = (props) => {
   return React.createElement(
     'p',
     {
-      className: 'mx-2 my-1'
+      className: 'mx-2 my-1 text-sm md:text-base'
     },
     props.children
   )
