@@ -10,6 +10,7 @@ const Isso: React.FC = () => {
         data-isso-vote-levels="0,5,10,25,100"
         data-isso-require-author="false"
         data-isso-require-email="false"
+        data-isso-css="true"
         src="//isso.gamou-tatsumi.com/js/embed.min.js"></script>
       <section id="isso-thread"></section>
       <noscript>
