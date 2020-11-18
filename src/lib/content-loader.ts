@@ -89,7 +89,7 @@ export interface PostContent {
   published: string
   content: string
   slug: string
-  category?: string
+  category: string
   image: string | null
   keyword: string | null
 }
