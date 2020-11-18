@@ -4,7 +4,7 @@ const Isso: React.FC = () => {
   if (process.env.NODE_ENV !== 'production') return (<></>)
   return (
     <>
-      <script data-isso="//isso.gamou-tatsumi.com"
+      <script data-isso="//isso.gamou-tatsumi.com/"
         data-isso-reply-to-self="true"
         data-isso-vote="true"
         data-isso-vote-levels="0,5,10,25,100"
