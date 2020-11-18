@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Host: https://blog.gamou-tatsumi.com
+Sitemap: https://blog.gamou-tatsumi.com/sitemap.xml
