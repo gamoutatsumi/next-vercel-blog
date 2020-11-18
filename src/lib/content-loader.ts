@@ -3,10 +3,11 @@ import matter from 'gray-matter'
 import formatDate from '@/lib/date'
 import fs from 'fs'
 
-const DIR = path.join(process.cwd(), 'content/posts')
+const DIR = path.join(process.cwd(), 'content')
 const EXTENSION = '.md'
 
-const listContentFiles = (dir: string | undefined = DIR): string[] => {
+const listContentFiles = (dir: string | undefined): string[] => {
+  if (dir === undefined) dir = path.join(DIR, 'posts')
   const dirents = fs.readdirSync(dir, { withFileTypes: true })
   const dirs: string[] = []
   let files: string[] = []
@@ -20,7 +21,8 @@ const listContentFiles = (dir: string | undefined = DIR): string[] => {
   return files.filter((filename: string) => path.parse(filename).ext === EXTENSION)
 }
 
-const readContentFile = ({ category, slug, filename }: { category?: string | string[], slug?: string | string[], filename?: string }): PostContent => {
+const readContentFile = ({ category, slug, filename, isPost }: { category?: string | string[], slug?: string | string[], filename?: string, isPost?: boolean }): PostContent => {
+  if (isPost === undefined) isPost = true
   if (slug === undefined) {
     if (filename !== undefined) {
       slug = path.parse(filename).name
@@ -34,9 +36,18 @@ const readContentFile = ({ category, slug, filename }: { category?: string | str
     category = category.join()
   }
   if (category === undefined || category === '') {
-    category = path.join(path.relative(DIR, path.dirname(filename ?? slug)))
+    if (isPost) {
+      category = path.join(path.relative(path.join(DIR, 'posts'), path.dirname(filename ?? slug)))
+    } else {
+      category = ''
+    }
   }
-  const raw = fs.readFileSync(path.join(DIR, category, `${slug}${EXTENSION}`), 'utf8')
+  let raw = ''
+  if (isPost) {
+    raw = fs.readFileSync(path.join(path.join(DIR, 'posts'), category, `${slug}${EXTENSION}`), 'utf8')
+  } else {
+    raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), 'utf8')
+  }
   const matterResult = matter(raw)
 
   const image = matterResult.data.image ?? null
@@ -60,7 +71,7 @@ const readContentFile = ({ category, slug, filename }: { category?: string | str
 
 const readContentFiles = async (category: string | string[] | undefined = ''): Promise<PostContent[]> => {
   if (category instanceof Array) category = category.join('/')
-  const promisses = listContentFiles([DIR, category].join('/')).map((filename) => readContentFile({ filename: filename }))
+  const promisses = listContentFiles([path.join(DIR, 'posts'), category].join('/')).map((filename) => readContentFile({ filename: filename }))
   const contents = await Promise.all(promisses)
   return contents.sort(sortWithProp('published', true))
 }
@@ -78,7 +89,7 @@ export interface PostContent {
   published: string
   content: string
   slug: string
-  category: string
+  category?: string
   image: string | null
   keyword: string | null
 }
