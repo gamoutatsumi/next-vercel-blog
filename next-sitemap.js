@@ -1,4 +1,5 @@
 module.exports = {
   siteUrl: 'https://blog.gamou-tatsumi.com',
-  generateRobotsTxt: true
+  generateRobotsTxt: true,
+  exclude: ['/404']
 }
