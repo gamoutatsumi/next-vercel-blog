@@ -11,13 +11,6 @@ const Isso: React.FC = () => {
         data-isso-require-author="false"
         data-isso-require-email="false"
         src="//isso.gamou-tatsumi.com/js/embed.min.js"></script>
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          window.onload = function() {
-            window.Isso.init();
-            window.Isso.fetchComments();
-          };`
-      }} />
       <section id="isso-thread"></section>
       <noscript>
         <div>
