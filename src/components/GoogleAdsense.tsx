@@ -4,8 +4,7 @@ const GoogleAdsense: React.FC = () => {
   return (
     <>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins className="adsbygoogle"
-        style={{ display: 'block' }}
+      <ins className="adsbygoogle inline-block w-full h-250"
         data-ad-client={process.env.GOOGLE_AD_CLIENT}
         data-ad-slot={process.env.GOOGLE_AD_SLOT}
         data-ad-format="auto"
