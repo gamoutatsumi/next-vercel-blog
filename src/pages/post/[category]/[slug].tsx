@@ -90,8 +90,8 @@ const Post: NextPage<PostContent> = ({ title, content, published, image, keyword
       <div>
         <h1>{title}</h1>
         <ReactMarkdown plugins={[[gfm], [toc, { heading: '目次' }]]} renderers={{ code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }} source={content} />
-        <Isso />
       </div>
+      <Isso />
     </Layout>
   )
 }
