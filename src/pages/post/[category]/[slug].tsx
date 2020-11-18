@@ -4,7 +4,6 @@ import ReactMarkdown from 'react-markdown'
 import toc from 'remark-toc'
 import gfm from 'remark-gfm'
 import GithubSlugger from 'github-slugger'
-import Isso from '@/components/Isso'
 
 import { listContentFiles, PostContent, readContentFile } from '@/lib/content-loader'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
@@ -91,7 +90,6 @@ const Post: NextPage<PostContent> = ({ title, content, published, image, keyword
         <h1>{title}</h1>
         <ReactMarkdown plugins={[[gfm], [toc, { heading: '目次' }]]} renderers={{ code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }} source={content} />
       </div>
-      <Isso />
     </Layout>
   )
 }
