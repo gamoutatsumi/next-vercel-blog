@@ -28,5 +28,8 @@ module.exports = {
     GA_TRACKING_ID: process.env.GA_TRACKING_ID,
     GOOGLE_AD_CLIENT: process.env.GOOGLE_AD_CLIENT,
     GOOGLE_AD_SLOT: process.env.GOOGLE_AD_SLOT
+  },
+  images: {
+    domains: ['grass-graph.moshimo.works']
   }
 }
