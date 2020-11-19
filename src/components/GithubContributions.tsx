@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import Image from 'next/image'
 
 const GithubContributions: React.FC = () => {
   const userName = process.env.GITHUB_USERNAME
@@ -11,9 +12,9 @@ const GithubContributions: React.FC = () => {
         <FontAwesomeIcon className="mr-1" fixedWidth icon={['fab', 'github']} />
         <a href={`https://github.com/${userName}`}>{userName}</a>
       </div>
-      <div className='text-center'>
+      <div className='text-center mt-2'>
         <a className='inline-block' href={`https://github.com/${userName}`}>
-          <img style={{ height: '870px' }} src={`https://grass-graph.moshimo.works/images/${userName}.png?rotate=90`} />
+          <Image layout='intrinsic' quality={100} height={870} width={155} src={`https://grass-graph.moshimo.works/images/${userName}.png?rotate=90`} />
         </a>
       </div>
     </>
