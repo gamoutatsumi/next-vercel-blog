@@ -9,17 +9,16 @@ categories:
   - 日記
 
 ---
+
 友人に勧められてアンテを買ったのでとりあえず動かす所までやってみた。
 
 ## 目次
 
-&nbsp;
-
-## 動機 {#動機}
+## 動機
 
 さっき書いた通り、友人（ガルパンおじさん兼アンテおじさん兼Archおじさん）に「アンテはいいぞぉ……」と勧められたので。サマーセールだからってサントラ付き買わされました。
 
-まあ折角買ったからにはやらにゃ損ですね。<del>ニーアオートマタはEエンドだけ終わらせて飽きましたが。まあそのうちコンプするつもりなのでノーカン。</del>
+まあ折角買ったからにはやらにゃ損ですね。~~ニーアオートマタはEエンドだけ終わらせて飽きましたが。まあそのうちコンプするつもりなのでノーカン。~~
 
 そしてこのUndertale、素晴らしい事にSteam OSに対応しているんですよ！！！！！
 
@@ -29,19 +28,18 @@ categories:
 
 で、このSteam OS、ベースがLinuxなんですよ。Linuxで動くなら当然Arch Linuxでも動きますよね？　はい、やらない理由がないですね。
 
-## 環境 {#環境}
+## 環境
 
-  * Arch Linux 64bit 
-      * Pulseaudio
-      * Intel CPU内蔵GPU
-  * Undertale購入済み
-  * GUI版のSteamはインストールしない
+* Arch Linux 64bit Pulseaudio
+  * Intel CPU内蔵GPU
+* Undertale購入済み
+* GUI版のSteamはインストールしない
 
-## 準備 {#準備}
+## 準備
 
 もうUndertaleは買ってある想定でやります。買ってなくても簡単に買えるので買ってください。
 
-### 必要なライブラリのインストール {#必要なライブラリのインストール}
+### 必要なライブラリのインストール
 
 大体[ArchWiki][1]を参考にしました。といってもライブラリ部分だけですが。
 
@@ -65,7 +63,7 @@ lib32-fontconfig lib32-gtk2 lib32-libxi lib32-nss lib32-libpng12
 
 あとなんか必要そうな感じのライブラリをとりあえず入れただけなので、もしかしたら余計なのが入ってるかもしれません。もしそうだったらコメントで教えていただけると幸いです。とりあえず`Orphaned Packages`とかは出てません。
 
-### SteamCMDのインストール {#SteamCMDのインストール}
+### SteamCMDのインストール
 
 SteamにはCUI版とGUI版が用意されているのですが、Linuxで使う場合はCUI版の方がめんどくささがなくて良さそうなのでCUI版を使います。ちなみにCUI版は`SteamCMD`と呼ばれています。
 
@@ -87,7 +85,7 @@ Loading Steam API...OK.
 Steam&gt;login &lt;username&gt;
 ```
 
-## Undertaleのインストール {#Undertaleのインストール}
+## Undertaleのインストール
 
 ここまででSteamCMDのインストールまで済みました。後はUndertaleをインストールして起動するだけです。
 
@@ -104,7 +102,7 @@ Success! App '391540' fully installed.
 
 これでインストール完了です。
 
-## Undertaleの起動 {#Undertaleの起動}
+## Undertaleの起動
 
 インストールしたゲームは、`~/Steam/steamapps/common/`以下に展開されます。Undertaleの場合は`~/Steam/steamapps/common/Undertale/`ですね。
 
@@ -117,7 +115,7 @@ cd ~/Steam/steamapps/common/Undertale/
 
 ![Arch LinuxでUndertaleを起動した図](/img/20190711151933.png)
 
-## まとめ {#まとめ}
+## まとめ
 
 拗らせArch使い的にはLinuxでもゲームができるのは嬉しいことこの上ないですね。
 

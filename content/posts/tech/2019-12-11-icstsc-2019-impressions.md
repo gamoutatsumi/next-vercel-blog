@@ -21,9 +21,9 @@ categories:
 
 手を付けたのは
 
-  * MySQLの復旧
-  * 匿名ダイアリー
-  * Welcome to NGINX
+* MySQLの復旧
+* 匿名ダイアリー
+* Welcome to NGINX
 
 です。
 

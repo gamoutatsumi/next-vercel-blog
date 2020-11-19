@@ -12,84 +12,79 @@ categories:
 
 ## 目次
 
-&nbsp;
-
-## 元の構成 {#元の構成}
+## 元の構成
 
 ドスパラで買ったBTOだからあんま把握してないけどこんな感じ。
 
-  * M/B ASUS H170 Pro 
-      * Intel SSD (SATA-500GB) 
-          * Windows10 HomeとArch Linuxの起動ディスクだった。
-      * TOSHIBA HDD(SATA-2TB) 
-          * データ用。
+* M/B ASUS H170 Pro
+  * Intel SSD (SATA-500GB)
+    * Windows10 HomeとArch Linuxの起動ディスクだった。
+  * TOSHIBA HDD(SATA-2TB)
+    * データ用。
 
-## 増設するストレージ {#増設するストレージ}
+## 増設するストレージ
 
 ツクモで安くて容量大きめのを買った。条件としてM.2 NVMeは必須だった。
 
-  * Intel SSD 660p(M.2 NVMe-1TB) 
-      * メインストリームのTLC NANDではなくQLC NANDを採用したSSD。容量の割に安かった(1万円)。データ用。
-  * ADATA XPG SX8200 Pro(M.2 NVMe-256GB) 
-      * チョイスとしては安牌だと思う。当初はこれにWindows入れる予定だった。こちらは6000円から7000円ぐらいで買った記憶(レシートどこにやったか忘れた)
+* Intel SSD 660p(M.2 NVMe-1TB)
+  * メインストリームのTLC NANDではなくQLC NANDを採用したSSD。容量の割に安かった(1万円)。データ用。
+* ADATA XPG SX8200 Pro(M.2 NVMe-256GB)
+  * チョイスとしては安牌だと思う。当初はこれにWindows入れる予定だった。こちらは6000円から7000円ぐらいで買った記憶(レシートどこにやったか忘れた)
 
-## 増設作業 {#増設作業}
+## 増設作業
 
-H170 ProはM.2スロットが1つしかないので片方はアイネックスの[AIF-08][1]を使ってPCIeに変換する。といってもPCIe x4もないのでやむなく唯一余ってたx16に挿す。<del>もったいない</del>
+H170 ProはM.2スロットが1つしかないので片方はアイネックスの[AIF-08][1]を使ってPCIeに変換する。といってもPCIe x4もないのでやむなく唯一余ってたx16に挿す。~~もったいない~~
 
 今回はヒートシンクが付属していなかった660pと組み合わせる。
 
-### 開封 {#開封}
+### 開封
 
-{{< tweet 1162986485542293504 >}}
-
+https://twitter.com/gamoutatsumi/status/1162986485542293504
 
 そもそも増設作業自体初めてだったので興奮どころかめっちゃ緊張してた。
 
-### 増設後 {#増設後}
+### 増設後
 
 増設後の写真を撮ってる余裕すらなかった。ご容赦願いたい。
 
-## OSインストール {#OSインストール}
+## OSインストール
 
-{{< tweet 1163044820874485761 >}}
+https://twitter.com/gamoutatsumi/status/1163044820874485761
 
-{{< tweet 1163046016485978112 >}}
+https://twitter.com/gamoutatsumi/status/1163046016485978112
 
 無事に認識できるようになったので新しいSSDにWindowsをインストールする。
 
 しかし、何度繰り返しても同じエラーを吐いて止まる。
 
-{{< tweet 1163058651600261120 >}}
+https://twitter.com/gamoutatsumi/status/1163058651600261120
 
 (この後も4,5回は繰り返したけど挫折)
 
 結局Archの環境を新しいSSDに移行する事にした。
 
-{{< tweet 1163220969361530880 >}}
-
-
+https://twitter.com/gamoutatsumi/status/1163220969361530880
 
 Archは本当に使いやすいのでみんなもArch、使おう！
 
-## 最終的な構成 {#最終的な構成}
+## 最終的な構成
 
 なんだかんだでこんな感じになった。
 
 ![lsblkの結果にちょっと手を加えたやつ](/img/lsblk.png)
 
-  * Intel SSD(SATA-500GB) 
-      * Windows 10 Home
-  * ADATA XPG SX8200 Pro(M.2 NVMe-256GB) 
-      * Arch Linux
-  * TOSHIBA HDD(SATA-2TB) 
-      * データ用
-  * Intel SSD 660p(M.2 NVMe-1TB) 
-      * データ用
+* Intel SSD(SATA-500GB)
+  * Windows 10 Home
+* ADATA XPG SX8200 Pro(M.2 NVMe-256GB)
+  * Arch Linux
+* TOSHIBA HDD(SATA-2TB)
+  * データ用
+* Intel SSD 660p(M.2 NVMe-1TB)
+  * データ用
 
-## ベンチマーク {#ベンチマーク}
+## ベンチマーク
 
-{{< tweet 1166482255969013760 >}}
+https://twitter.com/gamoutatsumi/status/1166482255969013760
 
 （SX8200はベンチ取る前にArch入れちゃったのでベンチは取ってないです）
 
@@ -99,7 +94,7 @@ Archは本当に使いやすいのでみんなもArch、使おう！
 
 あまりまともなレビューをする気もないし、今回はマザボの方もちょっと古かったので、速度に関しては参考程度に捉えてもらえると嬉しい。というかただの日記。
 
-## 総評 {#総評}
+## 総評
 
 Windowsはクソであると身をもって再確認できたのは思わぬ収穫だった。
 

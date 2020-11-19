@@ -21,12 +21,12 @@ CiscoのAPを使う為に構築して欲しいとの指示を受けたので、�
 
 ### サーバー
 
-  * CentOS7
-  * PHP7.2
-  * MariaDB 10.4.8
-  * FreeRADIUS 3.0.13
-  * daloRADIUS 1.1-2
-  * httpd 2.4.6
+* CentOS7
+* PHP7.2
+* MariaDB 10.4.8
+* FreeRADIUS 3.0.13
+* daloRADIUS 1.1-2
+* httpd 2.4.6
 
 ## 必要なパッケージのインストール
 
@@ -222,7 +222,7 @@ $configValues['CONFIG_DB_NAME'] = 'radius';
 
 ブラウザから`http://radiusサーバのIPアドレス/`にアクセスし、daloRADIUSのログイン画面が表示される事を確認する。
 
-![daloRADIUSログイン画面][1]
+![daloRADIUSログイン画面](/img/wp/daloradius-login.jpg)
 
 画像では日本語化されているが、デフォルトは英語になっている。
 
@@ -231,5 +231,3 @@ $configValues['CONFIG_DB_NAME'] = 'radius';
 * * *
 
 その2に続く。
-
- [1]: /img/wp/daloradius-login.jpg
