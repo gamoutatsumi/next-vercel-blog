@@ -39,7 +39,7 @@ H170 ProはM.2スロットが1つしかないので片方はアイネックス�
 
 ### 開封
 
-https://twitter.com/gamoutatsumi/status/1162986485542293504
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">SSD開封<br>そもそもM.2自体初めて触るから軽く興奮してる <a href="https://t.co/VdwUxv2ZV0">pic.twitter.com/VdwUxv2ZV0</a></p>&mdash; 蒲生辰巳.localdomain (@gamoutatsumi) <a href="https://twitter.com/gamoutatsumi/status/1162986485542293504?ref_src=twsrc%5Etfw">August 18, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 そもそも増設作業自体初めてだったので興奮どころかめっちゃ緊張してた。
 
@@ -49,21 +49,21 @@ https://twitter.com/gamoutatsumi/status/1162986485542293504
 
 ## OSインストール
 
-https://twitter.com/gamoutatsumi/status/1163044820874485761
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">写真付け忘れた <a href="https://t.co/T1g8eoULLv">pic.twitter.com/T1g8eoULLv</a></p>&mdash; 蒲生辰巳.localdomain (@gamoutatsumi) <a href="https://twitter.com/gamoutatsumi/status/1163044820874485761?ref_src=twsrc%5Etfw">August 18, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-https://twitter.com/gamoutatsumi/status/1163046016485978112
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">よっし <a href="https://t.co/WhknO8T4tU">pic.twitter.com/WhknO8T4tU</a></p>&mdash; 蒲生辰巳.localdomain (@gamoutatsumi) <a href="https://twitter.com/gamoutatsumi/status/1163046016485978112?ref_src=twsrc%5Etfw">August 18, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 無事に認識できるようになったので新しいSSDにWindowsをインストールする。
 
 しかし、何度繰り返しても同じエラーを吐いて止まる。
 
-https://twitter.com/gamoutatsumi/status/1163058651600261120
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">知らんがなお前が勝手にフォーマットしたんやろ <a href="https://t.co/6L3fPHVfyL">pic.twitter.com/6L3fPHVfyL</a></p>&mdash; 蒲生辰巳.localdomain (@gamoutatsumi) <a href="https://twitter.com/gamoutatsumi/status/1163058651600261120?ref_src=twsrc%5Etfw">August 18, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 (この後も4,5回は繰り返したけど挫折)
 
 結局Archの環境を新しいSSDに移行する事にした。
 
-https://twitter.com/gamoutatsumi/status/1163220969361530880
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">いや〜Archはいい子だなぁ〜<br>新しいssdに環境移すのにcpコマンド一つで終わっちゃうんだもんなぁ〜<br>それに引き換えWindowsはなんであんな無能やねんあーほんま腹立つわ（豹変）</p>&mdash; 蒲生辰巳.localdomain (@gamoutatsumi) <a href="https://twitter.com/gamoutatsumi/status/1163220969361530880?ref_src=twsrc%5Etfw">August 18, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Archは本当に使いやすいのでみんなもArch、使おう！
 
@@ -84,7 +84,7 @@ Archは本当に使いやすいのでみんなもArch、使おう！
 
 ## ベンチマーク
 
-https://twitter.com/gamoutatsumi/status/1166482255969013760
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ちなみにこれ先週買ったIntel 660pのベンチマークです<br>ずっと取り忘れてた…… <a href="https://t.co/D51rHct9Z7">pic.twitter.com/D51rHct9Z7</a></p>&mdash; 蒲生辰巳.localdomain (@gamoutatsumi) <a href="https://twitter.com/gamoutatsumi/status/1166482255969013760?ref_src=twsrc%5Etfw">August 27, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 （SX8200はベンチ取る前にArch入れちゃったのでベンチは取ってないです）
 

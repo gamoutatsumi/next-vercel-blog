@@ -89,7 +89,7 @@ const Post: NextPage<PostContent> = ({ title, content, published, image, keyword
       </div>
       <div>
         <h1>{title}</h1>
-        <ReactMarkdown plugins={[[unwrapimages], [gfm], [toc, { heading: '目次' }]]} renderers={{ code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }} source={content} />
+        <ReactMarkdown allowDangerousHtml plugins={[unwrapimages, gfm, [toc, { heading: '目次' }]]} renderers={{ code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }} source={content} />
       </div>
     </Layout>
   )

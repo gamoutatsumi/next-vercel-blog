@@ -69,8 +69,8 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
     "mdlint": "textlint 'content/posts/**/*.md'",
+    "postbuild": "next-sitemap",
     "start": "next start",
-    "vdev": "vercel dev",
-    "postbuild": "next-sitemap"
+    "vdev": "vercel dev"
   }
 }
