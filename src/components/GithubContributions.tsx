@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-export interface Props {
-  userName: string
-}
-
-const GithubContributions: React.FC<Props> = ({ userName }) => {
+const GithubContributions: React.FC = () => {
+  const userName = process.env.GITHUB_USERNAME
+  if (userName === undefined) return (<></>)
   return (
     <>
+      <h2 className='border-b-2 border-l-2 pl-2 my-3'>GitHub Activity</h2>
       <div className="github-link text-base">
         <FontAwesomeIcon className="mr-1" fixedWidth icon={['fab', 'github']} />
         <a href={`https://github.com/${userName}`}>{userName}</a>
