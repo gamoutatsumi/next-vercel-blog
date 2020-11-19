@@ -4,7 +4,6 @@ import Layout, { Props } from '@/components/Layout'
 import { PostContent, readContentFiles } from '@/lib/content-loader'
 import { GetStaticProps, NextPage } from 'next'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendar, faFolder } from '@fortawesome/free-regular-svg-icons'
 
 interface IndexProps extends Props {
   posts: PostContent[]
@@ -26,13 +25,13 @@ const Home: NextPage<IndexProps> = (props) => {
         </div>
         <div className="text-right flex justify-end">
           <div className="mr-2">
-            <FontAwesomeIcon className="fa-fw mr-1" icon={faCalendar} />
+            <FontAwesomeIcon className="mr-1" fixedWidth size='sm' icon={['far', 'calendar']} />
             <span>{post.published}</span>
           </div>
           <div>
             <Link href="/post/[category]" as={`/post/${post.category}`}>
               <a>
-                <FontAwesomeIcon className="fa-fw mr-1" icon={faFolder} />
+                <FontAwesomeIcon className="mr-1" fixedWidth size='sm' icon={['far', 'folder']} />
                 <span className="hover:underline inline-block w-10 text-left">{post.category}</span>
               </a>
             </Link>

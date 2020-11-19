@@ -1,4 +1,3 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
@@ -10,7 +9,7 @@ const GithubContributions: React.FC<Props> = ({ userName }) => {
   return (
     <>
       <div className="github-link text-base">
-        <FontAwesomeIcon className="fa-fw align-middle" icon={faGithub} />
+        <FontAwesomeIcon className="mr-1" fixedWidth icon={['fab', 'github']} />
         <a href={`https://github.com/${userName}`}>{userName}</a>
       </div>
       <div className='text-center'>
