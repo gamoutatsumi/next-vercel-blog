@@ -1,5 +1,6 @@
+require('dotenv').config()
 module.exports = {
-  siteUrl: 'https://blog.gamou-tatsumi.com',
+  siteUrl: process.env.BASE_URL,
   generateRobotsTxt: true,
   exclude: ['/404']
 }

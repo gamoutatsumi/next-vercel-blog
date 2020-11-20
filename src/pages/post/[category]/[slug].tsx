@@ -5,6 +5,8 @@ import toc from 'remark-toc'
 import gfm from 'remark-gfm'
 import GithubSlugger from 'github-slugger'
 import unwrapimages from 'remark-unwrap-images'
+import github from 'remark-github'
+import { TwitterShareButton, TwitterIcon, PocketShareButton, PocketIcon, HatenaShareButton, HatenaIcon } from 'react-share'
 
 import { listContentFiles, PostContent, readContentFile } from '@/lib/content-loader'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
@@ -16,6 +18,27 @@ interface MarkdownProps {
   level?: number
   children: JSX.Element[]
   ordered: boolean
+}
+
+interface PostProps extends PostContent {
+  url: string
+}
+
+interface InlineCodeProps {
+  children: JSX.Element[]
+}
+
+const InlineCode: FunctionComponent<InlineCodeProps> = (props) => {
+  if (props.children == null || props.children === undefined) {
+    return React.createElement('')
+  }
+  return React.createElement(
+    'code',
+    {
+      style: { backgroundColor: 'rgba(27,31,35,0.05)', padding: '0.2em 0.4em', borderRadius: '6px' }
+    },
+    props.children
+  )
 }
 
 const Heading: FunctionComponent<MarkdownProps> = (props) => {
@@ -81,7 +104,8 @@ const List: FunctionComponent<MarkdownProps> = (props) => {
   }
 }
 
-const Post: NextPage<PostContent> = ({ title, content, published, image, keyword }) => {
+const Post: NextPage<PostProps> = ({ title, content, published, image, keyword, url }) => {
+  const shareTitle = (process.env.SITE_TITLE !== undefined) ? title + ' | ' + process.env.SITE_TITLE : title
   return (
     <Layout title={title} isArticle={true} keyword={keyword} image={image}>
       <div className="post-meta">
@@ -89,16 +113,29 @@ const Post: NextPage<PostContent> = ({ title, content, published, image, keyword
       </div>
       <div>
         <h1>{title}</h1>
-        <ReactMarkdown allowDangerousHtml plugins={[unwrapimages, gfm, [toc, { heading: '目次' }]]} renderers={{ code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }} source={content} />
+        <ReactMarkdown allowDangerousHtml plugins={[[github, { repository: process.env.REPO_URL }], unwrapimages, gfm, [toc, { heading: '目次' }]]} renderers={{ inlineCode: InlineCode, code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }} source={content} />
+      </div>
+      <div className='flex justify-end'>
+        <TwitterShareButton className='mr-2' url={url} title={shareTitle}>
+          <TwitterIcon size={32} round />
+        </TwitterShareButton>
+        <PocketShareButton className='mr-2' url={url} title={shareTitle}>
+          <PocketIcon size={32} round />
+        </PocketShareButton>
+        <HatenaShareButton url={url} title={shareTitle}>
+          <HatenaIcon size={32} round />
+        </HatenaShareButton>
       </div>
     </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const url = [process.env.BASE_URL, params?.category, params?.slug].join('/')
   const content = readContentFile({ category: params?.category, slug: params?.slug })
   return {
     props: {
+      url: url,
       ...content
     }
   }
