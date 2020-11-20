@@ -7,7 +7,7 @@ updates:
     target-branch: "feature"
     versioning-strategy: increase-if-necessary
     schedule:
-      interval: daily
+      interval: weekly
     labels:
       - dependencies
       - automerge
