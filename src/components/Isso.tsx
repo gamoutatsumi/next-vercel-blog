@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Isso: React.FC = () => {
-  if (process.env.NODE_ENV !== 'production') return (<></>)
+  useEffect(() => {
+    if (window.Isso === undefined) return
+    if (document.getElementById('isso-root') === null) {
+      window.Isso.init()
+    }
+    window.Isso.fetchComments()
+  })
   return (
-    <>
+    <div className="comment mt-3">
       <script data-isso="//isso.gamou-tatsumi.com/"
         data-isso-reply-to-self="true"
         data-isso-vote="true"
@@ -18,7 +24,7 @@ const Isso: React.FC = () => {
           Please enable Javascript to view comments.
         </div>
       </noscript>
-    </>
+    </div>
   )
 }
 

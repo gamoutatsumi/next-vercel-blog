@@ -7,6 +7,7 @@ import GithubSlugger from 'github-slugger'
 import unwrapimages from 'remark-unwrap-images'
 import github from 'remark-github'
 import { TwitterShareButton, TwitterIcon, PocketShareButton, PocketIcon, HatenaShareButton, HatenaIcon } from 'react-share'
+import Isso from '@/components/Isso'
 
 import { listContentFiles, PostContent, readContentFile } from '@/lib/content-loader'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
@@ -126,6 +127,7 @@ const Post: NextPage<PostProps> = ({ title, content, published, image, keyword, 
           <HatenaIcon size={32} round />
         </HatenaShareButton>
       </div>
+      <Isso />
     </Layout>
   )
 }
