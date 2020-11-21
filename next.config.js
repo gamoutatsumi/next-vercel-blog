@@ -7,6 +7,9 @@ module.exports = {
       '~': path.resolve(__dirname, './src'),
       '@': path.resolve(__dirname, './src')
     }
+    config.externals.push({
+      dataLayer: 'dataLayer'
+    })
     return config
   },
   async redirects() {

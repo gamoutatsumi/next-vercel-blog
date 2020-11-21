@@ -19,11 +19,11 @@ const Layout: React.FC<Props> = ({ title, children, keyword, isArticle, image })
   const description = process.env.DESCRIPTION
   const pageImage = ((image != null && image !== '') ? image : 'https://blog.gamou-tatsumi.com/favicon.png')
   const pageKeyword = ((keyword != null && keyword !== '') ? `<meta name="keyword" content=${keyword}>` : '')
-  const trackingId = process.env.GA_TRACKING_ID ?? null
   return (
     <>
       <div className='page bg-gray-200 flex flex-col min-h-screen'>
         <Head>
+          <GoogleAnalytics />
           <link rel="icon" type="image/png" href="/favicon.png" />
           <title>{pageTitle}</title>
           <meta property="og:title" content={pageTitle} />
@@ -36,7 +36,6 @@ const Layout: React.FC<Props> = ({ title, children, keyword, isArticle, image })
           <meta name="twitter:site" content="@gamoutatsumi" />
           <meta name="twitter:description" content={description} />
           <meta name="twitter:image" content={pageImage} />
-          { GoogleAnalytics({ trackingId }) }
         </Head>
         <Header siteName={siteTitle} />
         <div className='container mx-auto my-3 flex flex-wrap justify-between'>
