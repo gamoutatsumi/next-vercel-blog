@@ -6,7 +6,6 @@ const Isso: React.FC = () => {
     if (document.getElementById('isso-root') === null) {
       window.Isso.init()
     }
-    window.Isso.fetchComments()
   })
   return (
     <div className="comment mt-3">
