@@ -29,6 +29,25 @@ interface InlineCodeProps {
   children: JSX.Element[]
 }
 
+interface LinkProps {
+  children: JSX.Element[]
+  href: string
+}
+
+const Link: FunctionComponent<LinkProps> = (props) => {
+  if (props.children == null || props.children === undefined) {
+    return React.createElement('')
+  }
+  return React.createElement(
+    'a',
+    {
+      className: 'hover:underline cursor-pointer',
+      href: props.href
+    },
+    props.children
+  )
+}
+
 const InlineCode: FunctionComponent<InlineCodeProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
@@ -114,7 +133,7 @@ const Post: NextPage<PostProps> = ({ title, content, published, image, keyword, 
       </div>
       <div>
         <h1>{title}</h1>
-        <ReactMarkdown allowDangerousHtml plugins={[[github, { repository: process.env.REPO_URL }], unwrapimages, gfm, [toc, { heading: '目次' }]]} renderers={{ inlineCode: InlineCode, code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }} source={content} />
+        <ReactMarkdown allowDangerousHtml plugins={[[github, { repository: process.env.REPO_URL }], unwrapimages, gfm, [toc, { heading: '目次' }]]} renderers={{ inlineCode: InlineCode, code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List, link: Link }} source={content} />
       </div>
       <div className='flex justify-end'>
         <TwitterShareButton className='mr-2' url={url} title={shareTitle}>
