@@ -152,7 +152,7 @@ const Post: NextPage<PostProps> = ({ title, content, published, image, keyword, 
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const url = [process.env.BASE_URL, params?.category, params?.slug].join('/')
+  const url = [process.env.BASE_URL, 'post', params?.category, params?.slug].join('/')
   const content = readContentFile({ category: params?.category, slug: params?.slug })
   return {
     props: {
