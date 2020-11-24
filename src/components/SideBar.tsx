@@ -10,7 +10,9 @@ const SideBar: React.FC = () => {
       <TwitterTimelineEmbed sourceType="profile" screenName={twitterUser} options={ { height: 600 } } />
       <TwitterFollowButton screenName={twitterUser} />
       <GithubContributions />
-      <GoogleAdsense />
+      <div className='text-center'>
+        <GoogleAdsense />
+      </div>
     </aside>
   )
 }
