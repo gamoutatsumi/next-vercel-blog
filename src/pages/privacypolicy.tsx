@@ -4,7 +4,6 @@ import ReactMarkdown from 'react-markdown'
 import toc from 'remark-toc'
 import gfm from 'remark-gfm'
 import GithubSlugger from 'github-slugger'
-
 import { PostContent, readContentFile } from '@/lib/content-loader'
 import { GetStaticProps, NextPage } from 'next'
 import CodeBlock from '@/components/CodeBlock'
@@ -21,9 +20,11 @@ const Heading: FunctionComponent<MarkdownProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
+
   if (props.level === undefined) {
     return React.createElement('')
   }
+
   if (props.level === 2) {
     return React.createElement(
       `h${props.level}`,
@@ -34,6 +35,7 @@ const Heading: FunctionComponent<MarkdownProps> = (props) => {
       props.children
     )
   }
+
   return React.createElement(
     `h${props.level}`,
     {
@@ -48,6 +50,7 @@ const Paragraph: FunctionComponent<MarkdownProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
+
   return React.createElement(
     'p',
     {
@@ -61,6 +64,7 @@ const List: FunctionComponent<MarkdownProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
+
   if (props.ordered) {
     return React.createElement(
       'ol',
@@ -88,7 +92,10 @@ const Post: NextPage<PostContent> = ({ title, content, published, image, keyword
       </div>
       <div>
         <h1>{title}</h1>
-        <ReactMarkdown plugins={[[gfm], [toc, { heading: '目次' }]]} renderers={{ code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }} source={content} />
+        <ReactMarkdown
+          plugins={[[gfm], [toc, { heading: '目次' }]]}
+          renderers={{ code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }}
+          source={content} />
       </div>
     </Layout>
   )
