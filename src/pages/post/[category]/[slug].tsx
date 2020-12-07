@@ -8,7 +8,6 @@ import unwrapimages from 'remark-unwrap-images'
 import github from 'remark-github'
 import { TwitterShareButton, TwitterIcon, PocketShareButton, PocketIcon, HatenaShareButton, HatenaIcon } from 'react-share'
 import Isso from '@/components/Isso'
-
 import { listContentFiles, PostContent, readContentFile } from '@/lib/content-loader'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import CodeBlock from '@/components/CodeBlock'
@@ -38,6 +37,7 @@ const Link: FunctionComponent<LinkProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
+
   return React.createElement(
     'a',
     {
@@ -52,6 +52,7 @@ const InlineCode: FunctionComponent<InlineCodeProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
+
   return React.createElement(
     'code',
     {
@@ -65,9 +66,11 @@ const Heading: FunctionComponent<MarkdownProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
+
   if (props.level === undefined) {
     return React.createElement('')
   }
+
   if (props.level === 2) {
     return React.createElement(
       `h${props.level}`,
@@ -78,6 +81,7 @@ const Heading: FunctionComponent<MarkdownProps> = (props) => {
       props.children
     )
   }
+
   return React.createElement(
     `h${props.level}`,
     {
@@ -92,6 +96,7 @@ const Paragraph: FunctionComponent<MarkdownProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
+
   return React.createElement(
     'p',
     {
@@ -105,6 +110,7 @@ const List: FunctionComponent<MarkdownProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
+
   if (props.ordered) {
     return React.createElement(
       'ol',
@@ -126,20 +132,49 @@ const List: FunctionComponent<MarkdownProps> = (props) => {
 
 const Post: NextPage<PostProps> = ({ title, content, published, image, keyword, url }) => {
   const shareTitle = (process.env.SITE_TITLE !== undefined) ? title + ' | ' + process.env.SITE_TITLE : title
+
   return (
-    <Layout title={title} isArticle={true} keyword={keyword} image={image}>
+    <Layout
+      title={title}
+      isArticle={true}
+      keyword={keyword}
+      image={image}>
       <div className="post-meta">
         <span>{published}</span>
       </div>
       <div>
         <h1>{title}</h1>
-        <ReactMarkdown allowDangerousHtml plugins={[[github, { repository: process.env.REPO_URL }], unwrapimages, gfm, [toc, { heading: '目次' }]]} renderers={{ inlineCode: InlineCode, code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List, link: Link }} source={content} />
+        <ReactMarkdown
+          allowDangerousHtml
+          plugins={
+            [
+              [github, { repository: process.env.REPO_URL }],
+              unwrapimages,
+              gfm,
+              [toc, { heading: '目次' }]
+            ]
+          }
+          renderers={{
+            inlineCode: InlineCode,
+            code: CodeBlock,
+            heading: Heading,
+            paragraph: Paragraph,
+            list: List,
+            link: Link
+          }}
+          source={content} />
       </div>
       <div className='flex justify-end'>
-        <TwitterShareButton className='mr-2' url={url} title={shareTitle}>
+        <TwitterShareButton
+          className='mr-2'
+          url={url}
+          title={shareTitle}>
           <TwitterIcon size={32} round />
         </TwitterShareButton>
-        <PocketShareButton className='mr-2' url={url} title={shareTitle}>
+        <PocketShareButton
+          className='mr-2'
+          url={url}
+          title={shareTitle}>
           <PocketIcon size={32} round />
         </PocketShareButton>
         <HatenaShareButton url={url} title={shareTitle}>
@@ -154,6 +189,7 @@ const Post: NextPage<PostProps> = ({ title, content, published, image, keyword, 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const url = [process.env.BASE_URL, 'post', params?.category, params?.slug].join('/')
   const content = readContentFile({ category: params?.category, slug: params?.slug })
+
   return {
     props: {
       url: url,

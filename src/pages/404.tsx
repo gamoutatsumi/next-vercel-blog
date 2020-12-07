@@ -1,6 +1,7 @@
 import React from 'react'
-import Layout from '@/components/Layout'
 import { NextPage } from 'next'
+
+import Layout from '@/components/Layout'
 
 const NotFound: NextPage = () => {
   return (
