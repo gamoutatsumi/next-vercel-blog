@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Header from '@/components/Header'
 import Head from 'next/head'
 import SideBar from '@/components/SideBar'
@@ -19,6 +20,7 @@ const Layout: React.FC<Props> = ({ title, children, keyword, isArticle, image })
   const description = process.env.DESCRIPTION
   const pageImage = ((image != null && image !== '') ? image : 'https://blog.gamou-tatsumi.com/favicon.png')
   const pageKeyword = ((keyword != null && keyword !== '') ? `<meta name="keyword" content=${keyword}>` : '')
+
   return (
     <>
       <div className='page bg-gray-200 flex flex-col min-h-screen'>
