@@ -11,7 +11,7 @@
         "allowFullWidthExclamation": true,
         "allowFullWidthQuestion": true,
         "severity": "warning"
-      },
+      }
     },
     "spellcheck-tech-word": {
       "severity": "warning"
