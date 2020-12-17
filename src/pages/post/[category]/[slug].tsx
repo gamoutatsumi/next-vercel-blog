@@ -142,7 +142,7 @@ const Post: NextPage<PostProps> = ({ title, content, published, image, keyword, 
       <div className="post-meta">
         <span>{published}</span>
       </div>
-      <div>
+      <article>
         <h1>{title}</h1>
         <ReactMarkdown
           allowDangerousHtml
@@ -163,7 +163,7 @@ const Post: NextPage<PostProps> = ({ title, content, published, image, keyword, 
             link: Link
           }}
           source={content} />
-      </div>
+      </article>
       <div className='flex justify-end'>
         <TwitterShareButton
           className='mr-2'

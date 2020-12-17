@@ -90,13 +90,13 @@ const Post: NextPage<PostContent> = ({ title, content, published, image, keyword
       <div className="post-meta">
         <span>{published}</span>
       </div>
-      <div>
+      <article>
         <h1>{title}</h1>
         <ReactMarkdown
           plugins={[[gfm], [toc, { heading: '目次' }]]}
           renderers={{ code: CodeBlock, heading: Heading, paragraph: Paragraph, list: List }}
           source={content} />
-      </div>
+      </article>
     </Layout>
   )
 }
