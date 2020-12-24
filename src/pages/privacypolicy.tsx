@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import Layout from '@/components/Layout'
 import ReactMarkdown from 'react-markdown'
 import toc from 'remark-toc'
@@ -10,13 +10,13 @@ import CodeBlock from '@/components/CodeBlock'
 
 const slugger = new GithubSlugger()
 
-interface MarkdownProps {
+interface Props {
   level?: number
   children: JSX.Element[]
   ordered: boolean
 }
 
-const Heading: FunctionComponent<MarkdownProps> = (props) => {
+const Heading: React.FC<Props> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
@@ -46,7 +46,7 @@ const Heading: FunctionComponent<MarkdownProps> = (props) => {
   )
 }
 
-const Paragraph: FunctionComponent<MarkdownProps> = (props) => {
+const Paragraph: React.FC<Props> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
@@ -60,7 +60,7 @@ const Paragraph: FunctionComponent<MarkdownProps> = (props) => {
   )
 }
 
-const List: FunctionComponent<MarkdownProps> = (props) => {
+const List: React.FC<Props> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
