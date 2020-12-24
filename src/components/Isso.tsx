@@ -13,7 +13,7 @@ const Isso: React.FC = () => {
           data-isso-css="true"
           src="//isso.gamou-tatsumi.com/js/embed.min.js"></script>
       </Head>
-      <div className="comment mt-3">
+      <div className="mt-3 comment">
         <section id="isso-thread"></section>
         <noscript>
           <div>

@@ -1,17 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
-import Layout, { Props } from '@/components/Layout'
+import Layout from '@/components/Layout'
 import { PostContent, readContentFiles } from '@/lib/content-loader'
 import { GetStaticProps, NextPage } from 'next'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon as FAIcon } from '@fortawesome/react-fontawesome'
 
-interface IndexProps extends Props {
+interface Props {
   posts: PostContent[]
   totalPage: number
   pageCount: number
 }
 
-const Home: NextPage<IndexProps> = (props) => {
+const Home: NextPage<Props> = (props) => {
   const { posts } = props
 
   return (
@@ -20,7 +20,7 @@ const Home: NextPage<IndexProps> = (props) => {
         <h1>Posts</h1>
         {posts.map((post) => <div
           key={post.slug}
-          className="post-teaser border m-3 p-2"
+          className="p-2 m-3 border post-teaser"
         >
           <div className="my-1">
             <h2>
@@ -30,9 +30,9 @@ const Home: NextPage<IndexProps> = (props) => {
               </Link>
             </h2>
           </div>
-          <div className="text-right flex justify-end">
+          <div className="flex justify-end text-right">
             <div className="mr-2">
-              <FontAwesomeIcon
+              <FAIcon
                 className="mr-1"
                 fixedWidth
                 size='sm'
@@ -44,11 +44,11 @@ const Home: NextPage<IndexProps> = (props) => {
                 href="/post/[category]"
                 as={`/post/${post.category}`}>
                 <a>
-                  <FontAwesomeIcon
+                  <FAIcon
                     className="mr-1"
                     fixedWidth size='sm'
                     icon={['far', 'folder']} />
-                  <span className="hover:underline inline-block w-10 text-left">{post.category}</span>
+                  <span className="inline-block w-10 text-left hover:underline">{post.category}</span>
                 </a>
               </Link>
             </div>

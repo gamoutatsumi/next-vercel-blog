@@ -6,7 +6,7 @@ import SideBar from '@/components/SideBar'
 import Footer from '@/components/Footer'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 
-export interface Props {
+interface Props {
   title: string | null
   keyword?: string | null
   isArticle: boolean
@@ -23,7 +23,7 @@ const Layout: React.FC<Props> = ({ title, children, keyword, isArticle, image })
 
   return (
     <>
-      <div className='page bg-gray-200 flex flex-col min-h-screen'>
+      <div className='flex flex-col min-h-screen bg-gray-200 page'>
         <Head>
           <GoogleAnalytics />
           <link rel="icon" type="image/png" href="/favicon.png" />
@@ -40,8 +40,8 @@ const Layout: React.FC<Props> = ({ title, children, keyword, isArticle, image })
           <meta name="twitter:image" content={pageImage} />
         </Head>
         <Header siteName={siteTitle} />
-        <div className='container mx-auto my-3 flex flex-wrap justify-between'>
-          <main className='w-full md:w-2/3 bg-white mx-auto p-3'>
+        <div className='container flex flex-wrap justify-between mx-auto my-3'>
+          <main className='w-full p-3 mx-auto bg-white md:w-2/3'>
             {children}
           </main>
           <SideBar />

@@ -7,12 +7,12 @@ interface Props {
 
 const Header: React.FC<Props> = ({ siteName }) => {
   return (
-    <header className='flex justify-between shadow-md bg-white'>
+    <header className='flex justify-between bg-white shadow-md'>
       <Link href='/post'>
-        <a className='text-md md:text-xl my-auto align-middle px-2 py-3'>{siteName}</a>
+        <a className='px-2 py-3 my-auto align-middle text-md md:text-xl'>{siteName}</a>
       </Link>
       <Link href='/privacypolicy'>
-        <a className="text-sm md:text-md my-auto hover:bg-gray-300 px-2 duration-300 rounded-md">Privacy Policy</a>
+        <a className="px-2 my-auto text-sm md:text-md hover:bg-gray-300 duration-300 rounded-md">Privacy Policy</a>
       </Link>
     </header>
   )

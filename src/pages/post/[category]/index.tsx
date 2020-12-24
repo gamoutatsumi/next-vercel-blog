@@ -1,15 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
-import Layout, { Props } from '@/components/Layout'
+import Layout from '@/components/Layout'
 import { PostContent, readContentFiles, listContentFiles, readContentFile } from '@/lib/content-loader'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon as FAIcon } from '@fortawesome/react-fontawesome'
 
-interface IndexProps extends Props {
+interface Props {
   posts: PostContent[]
 }
 
-const Home: NextPage<IndexProps> = ({ posts }) => {
+const Home: NextPage<Props> = ({ posts }) => {
   const title = posts[0].category.charAt(0).toUpperCase() + posts[0].category.slice(1)
 
   return (
@@ -18,7 +18,7 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
         <h1>{title}</h1>
         {posts.map((post) => <div
           key={post.slug}
-          className="post-teaser border m-3 p-2"
+          className="p-2 m-3 border post-teaser"
         >
           <div className="my-1">
             <h2>
@@ -29,16 +29,16 @@ const Home: NextPage<IndexProps> = ({ posts }) => {
               </Link>
             </h2>
           </div>
-          <div className="text-right flex justify-end">
+          <div className="flex justify-end text-right">
             <div className="mr-2">
-              <FontAwesomeIcon className="fa-fw mr-1" icon={['far', 'calendar']} />
+              <FAIcon className="mr-1 fa-fw" icon={['far', 'calendar']} />
               <span>{post.published}</span>
             </div>
             <div>
               <Link href="/post/[category]" as={`/post/${post.category}`}>
                 <a>
-                  <FontAwesomeIcon className="fa-fw mr-1" icon={['far', 'folder']} />
-                  <span className="hover:underline inline-block w-10 text-left">{post.category}</span>
+                  <FAIcon className="mr-1 fa-fw" icon={['far', 'folder']} />
+                  <span className="inline-block w-10 text-left hover:underline">{post.category}</span>
                 </a>
               </Link>
             </div>
