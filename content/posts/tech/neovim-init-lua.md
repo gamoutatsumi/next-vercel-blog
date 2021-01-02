@@ -8,7 +8,7 @@ date: 2020-12-21
 
 前日はrin1208さんの「[Makefileのすゝめ](https://qiita.com/rin1208/items/e913cac741a73dbbb46b)」です。
 
-明日はkoさんの「」です。
+明日はkoさんの「[tmux導入してみた。](https://qiita.com/koseiinfratop/items/5ab39fb537df3b19734e)」です。
 
 ## 目次
 
