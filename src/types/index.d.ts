@@ -10,4 +10,5 @@ interface Window {
   adsbygoogle: {[key: string]: unknown}[]
   dataLayer: Object[]
   Isso: any
+  [key: string]: 'true' | 'false'
 }

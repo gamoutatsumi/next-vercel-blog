@@ -27,10 +27,11 @@
   "devDependencies": {
     "@types/gtag.js": "0.0.4",
     "@types/node": "^14.14.8",
-    "@types/react-dom": "^17.0.0",
     "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "4",
     "@typescript-eslint/parser": "4",
+    "better-typescript-lib": "^1.0.1",
     "dotenv": "^8.2.0",
     "eslint": "7",
     "eslint-config-standard-with-typescript": "^19.0.1",

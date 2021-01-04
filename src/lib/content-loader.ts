@@ -84,7 +84,7 @@ const readContentFiles = async (category: string | string[] | undefined = ''): P
   return contents.sort(sortWithProp('published', true))
 }
 
-const sortWithProp = (name: string, reversed: boolean) => (a: PostContent, b: PostContent) => {
+const sortWithProp = (name: keyof Omit<PostContent, 'image' | 'keyword'>, reversed: boolean) => (a: PostContent, b: PostContent) => {
   if (reversed) {
     return a[name] < b[name] ? 1 : -1
   } else {
