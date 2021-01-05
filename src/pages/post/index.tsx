@@ -1,15 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 import Layout from '@/components/Layout'
-import { PostContent, readContentFiles } from '@/lib/content-loader'
-import { GetStaticProps, NextPage } from 'next'
+import { readContentFiles } from '@/lib/content-loader'
+import { NextPage, InferGetStaticPropsType } from 'next'
 import { FontAwesomeIcon as FAIcon } from '@fortawesome/react-fontawesome'
 
-interface Props {
-  posts: PostContent[]
-  totalPage: number
-  pageCount: number
-}
+type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 const Home: NextPage<Props> = (props) => {
   const { posts } = props
@@ -59,7 +55,8 @@ const Home: NextPage<Props> = (props) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types,@typescript-eslint/explicit-function-return-type
+export const getStaticProps = async () => {
   const posts = await readContentFiles()
 
   return {

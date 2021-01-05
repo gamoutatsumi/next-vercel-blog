@@ -1,13 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 import Layout from '@/components/Layout'
-import { PostContent, readContentFiles, listContentFiles, readContentFile } from '@/lib/content-loader'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { readContentFiles, listContentFiles, readContentFile } from '@/lib/content-loader'
+import { GetStaticPaths, NextPage, InferGetStaticPropsType, GetStaticPropsContext } from 'next'
 import { FontAwesomeIcon as FAIcon } from '@fortawesome/react-fontawesome'
 
-interface Props {
-  posts: PostContent[]
-}
+type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 const Home: NextPage<Props> = ({ posts }) => {
   const title = posts[0].category.charAt(0).toUpperCase() + posts[0].category.slice(1)
@@ -59,7 +57,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types,@typescript-eslint/explicit-function-return-type
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const posts = await readContentFiles(params?.category)
 
   return {
