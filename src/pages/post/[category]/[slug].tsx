@@ -9,19 +9,24 @@ import github from 'remark-github'
 import { TwitterShareButton, TwitterIcon, PocketShareButton, PocketIcon, HatenaShareButton, HatenaIcon } from 'react-share'
 import Isso from '@/components/Isso'
 import { listContentFiles, PostContent, readContentFile } from '@/lib/content-loader'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
 import CodeBlock from '@/components/CodeBlock'
 
 const slugger = new GithubSlugger()
 
-interface Props {
-  level?: number
-  children: JSX.Element[]
-  ordered: boolean
-}
+type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 interface PostProps extends PostContent {
   url: string
+}
+
+interface ListProps extends Props {
+  ordered: boolean
+}
+
+interface HeadProps extends Props {
+  level?: number
+  children: JSX.Element[]
 }
 
 interface InlineCodeProps {
@@ -62,7 +67,7 @@ const InlineCode: React.FC<InlineCodeProps> = (props) => {
   )
 }
 
-const Heading: React.FC<Props> = (props) => {
+const Heading: React.FC<HeadProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
@@ -106,7 +111,7 @@ const Paragraph: React.FC<Props> = (props) => {
   )
 }
 
-const List: React.FC<Props> = (props) => {
+const List: React.FC<ListProps> = (props) => {
   if (props.children == null || props.children === undefined) {
     return React.createElement('')
   }
@@ -186,7 +191,8 @@ const Post: NextPage<PostProps> = ({ title, content, published, image, keyword, 
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types,@typescript-eslint/explicit-function-return-type
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const url = [process.env.BASE_URL, 'post', params?.category, params?.slug].join('/')
   const content = readContentFile({ category: params?.category, slug: params?.slug })
 
