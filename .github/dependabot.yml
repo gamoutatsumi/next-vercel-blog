@@ -2,8 +2,6 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
-    reviewers:
-      - gamoutatsumi
     target-branch: "feature"
     versioning-strategy: increase-if-necessary
     schedule:
