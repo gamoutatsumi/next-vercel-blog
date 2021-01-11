@@ -5,13 +5,13 @@ import toc from 'remark-toc'
 import gfm from 'remark-gfm'
 import GithubSlugger from 'github-slugger'
 import { PostContent, readContentFile } from '@/lib/content-loader'
-import { GetStaticProps, NextPage } from 'next'
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import CodeBlock from '@/components/CodeBlock'
 
 const slugger = new GithubSlugger()
 
-interface Props {
-  level?: number
+interface Props extends InferGetStaticPropsType<typeof getStaticProps> {
+  level: number
   children: JSX.Element[]
   ordered: boolean
 }

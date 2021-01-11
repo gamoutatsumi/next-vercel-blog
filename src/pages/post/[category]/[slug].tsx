@@ -20,11 +20,11 @@ interface PostProps extends PostContent {
   url: string
 }
 
-interface ListProps extends Props {
+interface ListProps {
   ordered: boolean
 }
 
-interface HeadProps extends Props {
+interface HeadProps {
   level?: number
   children: JSX.Element[]
 }
