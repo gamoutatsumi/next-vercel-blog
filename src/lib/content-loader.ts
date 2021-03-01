@@ -7,7 +7,7 @@ const DIR = path.join(process.cwd(), 'content')
 const EXTENSION = '.md'
 
 const listContentFiles = (dir?: string): string[] => {
-  if (dir === undefined) dir = path.join(DIR, 'posts')
+  if (dir == null) dir = path.join(DIR, 'posts')
 
   const dirents = fs.readdirSync(dir, { withFileTypes: true })
   const dirs: string[] = []
@@ -26,10 +26,10 @@ const listContentFiles = (dir?: string): string[] => {
 }
 
 const readContentFile = ({ category, slug, filename, isPost }: { category?: string | string[], slug?: string | string[], filename?: string, isPost?: boolean }): PostContent => {
-  if (isPost === undefined) isPost = true
+  if (isPost == null) isPost = true
 
-  if (slug === undefined) {
-    if (filename !== undefined) {
+  if (slug == null) {
+    if (filename != null) {
       slug = path.parse(filename).name
     } else {
       throw new TypeError()
@@ -42,7 +42,7 @@ const readContentFile = ({ category, slug, filename, isPost }: { category?: stri
     category = category.join()
   }
 
-  if (category === undefined || category === '') {
+  if (category == null || category === '') {
     if (isPost) {
       category = path.join(path.relative(path.join(DIR, 'posts'), path.dirname(filename ?? slug)))
     } else {

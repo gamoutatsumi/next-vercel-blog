@@ -6,7 +6,7 @@ import { FontAwesomeIcon as FAIcon } from '@fortawesome/react-fontawesome'
 const GithubContributions: React.FC = () => {
   const userName = process.env.GITHUB_USERNAME
 
-  if (userName === undefined) return (<></>)
+  if (userName == null) return (<></>)
 
   return (
     <>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 const GoogleAdsense: React.FC = () => {
   useEffect(() => {
-    if (window.adsbygoogle !== undefined && process.env.NODE_ENV === 'production') {
+    if (window.adsbygoogle != null && process.env.NODE_ENV === 'production') {
       window.adsbygoogle.push({})
     }
   })
