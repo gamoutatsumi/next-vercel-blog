@@ -39,7 +39,7 @@ interface LinkProps {
 }
 
 const Link: React.FC<LinkProps> = (props) => {
-  if (props.children == null || props.children === undefined) {
+  if (props.children == null) {
     return React.createElement('')
   }
 
@@ -54,7 +54,7 @@ const Link: React.FC<LinkProps> = (props) => {
 }
 
 const InlineCode: React.FC<InlineCodeProps> = (props) => {
-  if (props.children == null || props.children === undefined) {
+  if (props.children == null) {
     return React.createElement('')
   }
 
@@ -68,11 +68,11 @@ const InlineCode: React.FC<InlineCodeProps> = (props) => {
 }
 
 const Heading: React.FC<HeadProps> = (props) => {
-  if (props.children == null || props.children === undefined) {
+  if (props.children == null) {
     return React.createElement('')
   }
 
-  if (props.level === undefined) {
+  if (props.level == null) {
     return React.createElement('')
   }
 
@@ -98,7 +98,7 @@ const Heading: React.FC<HeadProps> = (props) => {
 }
 
 const Paragraph: React.FC<Props> = (props) => {
-  if (props.children == null || props.children === undefined) {
+  if (props.children == null) {
     return React.createElement('')
   }
 
@@ -112,7 +112,7 @@ const Paragraph: React.FC<Props> = (props) => {
 }
 
 const List: React.FC<ListProps> = (props) => {
-  if (props.children == null || props.children === undefined) {
+  if (props.children == null) {
     return React.createElement('')
   }
 
@@ -136,7 +136,7 @@ const List: React.FC<ListProps> = (props) => {
 }
 
 const Post: NextPage<PostProps> = ({ title, content, published, image, keyword, url }) => {
-  const shareTitle = (process.env.SITE_TITLE !== undefined) ? title + ' | ' + process.env.SITE_TITLE : title
+  const shareTitle = (process.env.SITE_TITLE != null) ? title + ' | ' + process.env.SITE_TITLE : title
 
   return (
     <Layout

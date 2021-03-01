@@ -17,11 +17,11 @@ interface Props extends InferGetStaticPropsType<typeof getStaticProps> {
 }
 
 const Heading: React.FC<Props> = (props) => {
-  if (props.children == null || props.children === undefined) {
+  if (props.children == null) {
     return React.createElement('')
   }
 
-  if (props.level === undefined) {
+  if (props.level == null) {
     return React.createElement('')
   }
 
@@ -47,7 +47,7 @@ const Heading: React.FC<Props> = (props) => {
 }
 
 const Paragraph: React.FC<Props> = (props) => {
-  if (props.children == null || props.children === undefined) {
+  if (props.children == null) {
     return React.createElement('')
   }
 
@@ -61,7 +61,7 @@ const Paragraph: React.FC<Props> = (props) => {
 }
 
 const List: React.FC<Props> = (props) => {
-  if (props.children == null || props.children === undefined) {
+  if (props.children == null) {
     return React.createElement('')
   }
 
