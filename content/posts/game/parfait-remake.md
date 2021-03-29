@@ -14,7 +14,7 @@ categories:
 
 ## 感想（ネタバレあり）
 
-https://twitter.com/GTatsumi0710/status/1375327658398031873
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">パルフェリメイク着弾 <a href="https://t.co/Qjchv42rXw">pic.twitter.com/Qjchv42rXw</a></p>&mdash; 蒲生辰巳@オタク垢 (@GTatsumi0710) <a href="https://twitter.com/GTatsumi0710/status/1375327658398031873?ref_src=twsrc%5Etfw">March 26, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 15年前のゲームにネタバレもないだろうって感じで飛ばしていきます。
 
@@ -29,8 +29,6 @@ https://twitter.com/GTatsumi0710/status/1375327658398031873
 ```
 
 実は冴えカノすら履修してないので丸戸作品については今回のパルフェが本当に初めてだったんですけど、やっぱり凄かったです、丸戸史明。
-
-https://twitter.com/GTatsumi0710/status/1376287526990749697
 
 名作として名高いパルフェに関しては幸いほとんどネタバレを踏んでない（「里伽子は最後」という情報だけは知ってる）ので、純粋に楽しむ事ができました。
 
