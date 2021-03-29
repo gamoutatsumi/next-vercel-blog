@@ -13,13 +13,8 @@
         "severity": "warning"
       }
     },
-    "spellcheck-tech-word": {
-      "severity": "warning"
-    },
     "ja-technical-writing/sentence-length": false,
-    "ja-technical-writing/ja-no-weak-phrase": {
-      "severity": "warning"
-    },
+    "ja-technical-writing/ja-no-weak-phrase": false,
     "ja-technical-writing/ja-unnatural-alphabet": {
       "severity": "warning"
     },
@@ -34,9 +29,6 @@
       "severity": "warning"
     },
     "ja-technical-writing/ja-no-redundant-expression": {
-      "severity": "warning"
-    },
-    "ja-technical-writing/ja-no-successive-word": {
       "severity": "warning"
     },
     "ja-technical-writing/arabic-kanji-numbers": {

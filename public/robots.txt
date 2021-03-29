@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
 Host: https://blog.gamou-tatsumi.com
+
+# Sitemaps
 Sitemap: https://blog.gamou-tatsumi.com/sitemap.xml
