@@ -80,8 +80,7 @@
     "mdlint": "textlint 'content/posts/**/*.md'",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "vdev": "vercel dev",
-    "preinstall": "npx only-allow pnpm"
+    "vdev": "vercel dev"
   },
   "volta": {
     "node": "14.14.0"
