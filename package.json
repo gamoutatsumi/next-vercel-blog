@@ -43,7 +43,7 @@
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.23.1",
     "fixpack": "^4.0.0",
-    "husky": "^4.3.8",
+    "husky": "^6",
     "js-green-licenses": "^3.0.0",
     "lint-staged": "^10.5.4",
     "next-sitemap": "^1.6.9",
@@ -55,11 +55,6 @@
     "textlint-rule-spellcheck-tech-word": "^5.0.0",
     "typescript": "^4.2.3",
     "vercel": "^21.3.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged --verbose"
-    }
   },
   "license": "UNLICENSED",
   "lint-staged": {
@@ -80,7 +75,8 @@
     "mdlint": "textlint 'content/posts/**/*.md'",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "vdev": "vercel dev"
+    "vdev": "vercel dev",
+    "prepare": "husky install"
   },
   "volta": {
     "node": "14.14.0"
