@@ -44,7 +44,7 @@
     "eslint-plugin-react": "^7.23.2",
     "fixpack": "^4.0.0",
     "js-green-licenses": "^3.0.1",
-    "lint-staged": "^11.0.0",
+    "lint-staged": "^12.1.2",
     "next-sitemap": "^1.6.25",
     "postcss": "^8.3.5",
     "postcss-preset-env": "^6.7.0",
